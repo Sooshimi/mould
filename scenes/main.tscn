@@ -18,6 +18,9 @@ offset_right = 296.0
 offset_bottom = 161.0
 texture = ExtResource("2_sugp2")
 
+[node name="Cell" parent="." instance=ExtResource("7_o6xl0")]
+position = Vector2(168, 152)
+
 [node name="SlimePath" parent="." instance=ExtResource("6_tefeu")]
 
 [node name="Slime" parent="." instance=ExtResource("3_sugp2")]
@@ -27,6 +30,3 @@ position = Vector2(160, 160)
 
 [node name="Dice" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(224, 216)
-
-[node name="Cell" parent="." instance=ExtResource("7_o6xl0")]
-position = Vector2(168, 152)

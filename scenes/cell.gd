@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var infected_indicator := $InfectedIndicator
+
 var top_infected := false
 var bottom_infected := false
 var left_infected := false
@@ -9,7 +11,7 @@ var cell_infected := false
 func is_infected() -> void:
 	if top_infected and bottom_infected and left_infected and right_infected:
 		cell_infected = true
-		print("cell infected")
+		infected_indicator.show()
 
 func _on_top_body_entered(body: CharacterBody2D) -> void:
 	top_infected = true

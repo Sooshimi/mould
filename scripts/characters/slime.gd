@@ -44,12 +44,12 @@ func reset_slime_movements_remaining(new_value: int) -> void:
 
 func move(direction: Vector2) -> void:
 	slime_movement_remaining -= 1
-	global_position += direction * tile_size
-	sprite.global_position -= direction * tile_size
+	
+	var target_position = global_position + (direction * tile_size)
 	
 	# If there's an existing tween, terminate it. Prevents multiple tweens running at the same time.
 	if sprite_node_position_tween:
 		sprite_node_position_tween.kill()
 	sprite_node_position_tween = create_tween()
 	sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) # Sets Tween to update in sync with the physics frame step
-	sprite_node_position_tween.tween_property(sprite, "global_position", global_position, walk_speed).set_trans(Tween.TRANS_SINE)
+	sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)
