@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6rwuldwktqp4"]
+
+[ext_resource type="Script" uid="uid://dcmuma8unkvxd" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://fatuvqcajhiy" path="res://assets/grid.png" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://h3smwm553ckt" path="res://scenes/slime.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://caorlff8v250a" path="res://scenes/dice.tscn" id="4_jyhfs"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0wfyh")
+
+[node name="Grid" type="TextureRect" parent="."]
+offset_left = 160.0
+offset_top = 24.0
+offset_right = 297.0
+offset_bottom = 161.0
+texture = ExtResource("2_sugp2")
+
+[node name="Slime" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(160, 160)
+
+[node name="Dice" parent="." instance=ExtResource("4_jyhfs")]
+position = Vector2(224, 216)

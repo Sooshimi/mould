@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://caorlff8v250a"]
+
+[ext_resource type="Texture2D" uid="uid://c7r7ffkcgsr76" path="res://assets/dice/dieWhite_border1.png" id="1_27nyo"]
+[ext_resource type="Script" uid="uid://c31d3u1r1p1fj" path="res://scripts/dice.gd" id="1_mg5ex"]
+
+[node name="Dice" type="Node2D"]
+script = ExtResource("1_mg5ex")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Face" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_27nyo")
+
+[node name="RollTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
