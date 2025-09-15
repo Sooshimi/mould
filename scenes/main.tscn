@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6rwuldwktqp4"]
+[gd_scene load_steps=11 format=3 uid="uid://b6rwuldwktqp4"]
 
 [ext_resource type="Script" uid="uid://dcmuma8unkvxd" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://fatuvqcajhiy" path="res://assets/grid.png" id="2_sugp2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bnx3m6tx4tt5v" path="res://scenes/ui/ui.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://caorlff8v250a" path="res://scenes/dice.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ciagworcfis82" path="res://scenes/slime_path.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bbnvwxgbqaljf" path="res://scenes/human.tscn" id="6_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(13, 171)
@@ -32,34 +33,37 @@ position = Vector2(167, 32)
 [node name="Slime" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(160, 160)
 
+[node name="Human" parent="." instance=ExtResource("6_tipki")]
+position = Vector2(185, 135)
+
 [node name="UI" parent="." instance=ExtResource("3_tbgi4")]
 
 [node name="Dice" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(224, 216)
 
 [node name="GridBoundaryLeft" type="Area2D" parent="."]
-position = Vector2(138, 19)
+position = Vector2(141, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryLeft"]
 position = Vector2(5.5, 75.5)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="GridBoundaryRight" type="Area2D" parent="."]
-position = Vector2(137, 19)
+position = Vector2(133, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryRight"]
 position = Vector2(175, 75)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="GridBoundaryTop" type="Area2D" parent="."]
-position = Vector2(137, 19)
+position = Vector2(137, 23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryTop"]
 position = Vector2(90, -9)
 shape = SubResource("RectangleShape2D_tipki")
 
 [node name="GridBoundaryBottom" type="Area2D" parent="."]
-position = Vector2(137, 19)
+position = Vector2(137, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryBottom"]
 position = Vector2(90, 157)

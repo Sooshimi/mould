@@ -50,6 +50,7 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_6ngbm")
 
 [connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
+[connection signal="body_exited" from="Top" to="." method="_on_top_body_exited"]
 [connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]
 [connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
 [connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]

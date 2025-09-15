@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Slime
 
 @onready var sprite := $Sprite2D
 @onready var up := $Up
@@ -11,7 +12,7 @@ const tile_size := Vector2(17.0, 17.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
 
-var slime_movement_remaining: int:
+var slime_movement_remaining: int = 0:
 	get:
 		return slime_movement_remaining
 	set(new_value):
