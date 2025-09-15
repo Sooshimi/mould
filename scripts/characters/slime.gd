@@ -5,10 +5,14 @@ extends CharacterBody2D
 @onready var down := $Down
 @onready var left := $Left
 @onready var right := $Right
+@onready var slime_path := $"../SlimePath"
 
 const tile_size := Vector2(17.0, 17.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
+
+var min_distance = 1.0
+var last_point: Vector2
 
 var slime_movement_remaining: int:
 	get:
@@ -19,6 +23,8 @@ var slime_movement_remaining: int:
 
 func _ready() -> void:
 	TurnManager.connect("dice_rolled", reset_slime_movements_remaining)
+	last_point = global_position
+	slime_path.add_point(global_position)
 
 func _physics_process(_delta: float) -> void:
 	if (not sprite_node_position_tween or not sprite_node_position_tween.is_running()) and slime_movement_remaining > 0:
@@ -30,6 +36,10 @@ func _physics_process(_delta: float) -> void:
 			move(Vector2(-1.0, 0.0))
 		elif Input.is_action_just_pressed("right") and not right.is_colliding():
 			move(Vector2(1.0, 0.0))
+			
+	#if global_position.distance_to(last_point) >= min_distance:
+	slime_path.add_point(global_position)
+	last_point = global_position
 
 func reset_slime_movements_remaining(new_value: int) -> void:
 	slime_movement_remaining = new_value
