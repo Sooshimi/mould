@@ -24,33 +24,31 @@ func infect_cell() -> void:
 	cell_infected = true
 	infected_indicator.show()
 
-func _on_top_body_entered(body: CharacterBody2D) -> void:
+func update_cell_status(cell_area_entered: String, body: CharacterBody2D) -> void:
 	if body is Slime:
-		top_infected = true
+		if cell_area_entered == "top":
+			top_infected = true
+		elif cell_area_entered == "bottom":
+			bottom_infected = true
+		elif cell_area_entered == "left":
+			left_infected = true
+		else:
+			right_infected = true
 	elif body is Human:
 		human_in_area.append(body)
 	checked_if_infected(body)
+
+func _on_top_body_entered(body: CharacterBody2D) -> void:
+	update_cell_status("top", body)
 
 func _on_bottom_body_entered(body: CharacterBody2D) -> void:
-	if body is Slime:
-		bottom_infected = true
-	elif body is Human:
-		human_in_area.append(body)
-	checked_if_infected(body)
+	update_cell_status("bottom", body)
 
 func _on_left_body_entered(body: CharacterBody2D) -> void:
-	if body is Slime:
-		left_infected = true
-	elif body is Human:
-		human_in_area.append(body)
-	checked_if_infected(body)
+	update_cell_status("left", body)
 
 func _on_right_body_entered(body: CharacterBody2D) -> void:
-	if body is Slime:
-		right_infected = true
-	elif body is Human:
-		human_in_area.append(body)
-	checked_if_infected(body)
+	update_cell_status("right", body)
 
 func _on_top_body_exited(body: Human) -> void:
 	human_in_area = []
