@@ -17,7 +17,6 @@ var current_face: int:
 		return current_face
 	set(value):
 		current_face = value
-		TurnManager.dice_rolled.emit(current_face+1)
 
 func _process(_delta: float) -> void:
 	roll_dice()
@@ -29,3 +28,6 @@ func roll_dice() -> void:
 	if not roll_timer.is_stopped():
 		current_face = randi_range(0, 5)
 		face.texture = dice_faces[current_face]
+
+func _on_roll_timer_timeout():
+	TurnManager.dice_rolled.emit(current_face+1)

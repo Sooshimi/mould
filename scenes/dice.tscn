@@ -27,3 +27,4 @@ texture = ExtResource("1_27nyo")
 one_shot = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="RollTimer" to="." method="_on_roll_timer_timeout"]
