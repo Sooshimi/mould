@@ -63,6 +63,13 @@ right={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="outer_borders"
+2d_physics/layer_2="slime"
+2d_physics/layer_3="human"
+2d_physics/layer_4="cell"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
