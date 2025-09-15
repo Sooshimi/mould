@@ -37,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 			move(Vector2(1.0, 0.0))
 			
 	slime_path.add_point(global_position)
-	last_point = global_position
+	
 
 func reset_slime_movements_remaining(new_value: int) -> void:
 	slime_movement_remaining = new_value
