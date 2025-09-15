@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://llc5dayvldkd"]
+
+[ext_resource type="Script" uid="uid://d01eus5cvfa8x" path="res://scenes/cell.gd" id="1_upbjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngbm"]
+size = Vector2(2, 5.25)
+
+[node name="Cell" type="Node2D"]
+script = ExtResource("1_upbjj")
+
+[node name="Top" type="Area2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+shape = SubResource("RectangleShape2D_6ngbm")
+
+[node name="Bottom" type="Area2D" parent="."]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+shape = SubResource("RectangleShape2D_6ngbm")
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(-4, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("RectangleShape2D_6ngbm")
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2(4, 0)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("RectangleShape2D_6ngbm")
+
+[connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
+[connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]

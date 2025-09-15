@@ -11,7 +11,6 @@ const tile_size := Vector2(17.0, 17.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
 
-var min_distance = 1.0
 var last_point: Vector2
 
 var slime_movement_remaining: int:
@@ -37,7 +36,6 @@ func _physics_process(_delta: float) -> void:
 		elif Input.is_action_just_pressed("right") and not right.is_colliding():
 			move(Vector2(1.0, 0.0))
 			
-	#if global_position.distance_to(last_point) >= min_distance:
 	slime_path.add_point(global_position)
 	last_point = global_position
 
