@@ -8,6 +8,10 @@ class_name Human
 @onready var right := $Right
 
 const tile_size := Vector2(17.0, 17.0)
+const move_up := Vector2(0.0, -1.0)
+const move_down := Vector2(0.0, 1.0)
+const move_left := Vector2(-1.0, 0.0)
+const move_right := Vector2(1.0, 0.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
 var direction: Vector2
@@ -20,18 +24,21 @@ func on_dice_rolled(_new_value) -> void:
 	move()
 
 func pick_random_direction() -> Vector2:
-	var directions := [Vector2(0.0, -1.0), Vector2(0.0, 1.0), Vector2(-1.0, 0.0), Vector2(1.0, 0.0)] # Up, Down, Left, Right
+	var directions := [move_up, move_down, move_left, move_right] # Up, Down, Left, Right
 	
 	if up.is_colliding():
-		directions.remove_at(0)
+		directions.erase(move_up)
 	if down.is_colliding():
-		directions.remove_at(1)
+		directions.erase(move_down)
 	if left.is_colliding():
-		directions.remove_at(2)
+		directions.erase(move_left)
 	if right.is_colliding():
-		directions.remove_at(3)
+		directions.erase(move_right)
 	
-	direction = directions[randi() % directions.size()]
+	if directions.size() > 0:
+		direction = directions[randi() % directions.size()]
+	else:
+		direction = Vector2.ZERO
 	
 	return direction
 

@@ -8,11 +8,12 @@ var cell_infected := false
 var human_in_area := []
 
 func checked_if_infected(_body: CharacterBody2D) -> void:
-	if top_infected and bottom_infected and left_infected and right_infected and human_in_area.size() > 0:
+	if top_infected and bottom_infected and left_infected and right_infected:
 		infect_cell()
-		for human in human_in_area:
-			human.infected = true
-			
+		if human_in_area.size() > 0:
+			for human in human_in_area:
+				human.infected = true
+	
 	if human_in_area.size() > 0:
 		for human in human_in_area:
 			if human.infected:

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bnx3m6tx4tt5v" path="res://scenes/ui/ui.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://caorlff8v250a" path="res://scenes/dice.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ciagworcfis82" path="res://scenes/slime_path.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://bbnvwxgbqaljf" path="res://scenes/human.tscn" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://dkk3m1w4ceo65" path="res://scenes/human.tscn" id="6_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(13, 171)
@@ -35,6 +35,15 @@ position = Vector2(160, 160)
 
 [node name="Human" parent="." instance=ExtResource("6_tipki")]
 position = Vector2(185, 135)
+
+[node name="Human2" parent="." instance=ExtResource("6_tipki")]
+position = Vector2(185, 67)
+
+[node name="Human3" parent="." instance=ExtResource("6_tipki")]
+position = Vector2(236, 152)
+
+[node name="Human4" parent="." instance=ExtResource("6_tipki")]
+position = Vector2(270, 50)
 
 [node name="UI" parent="." instance=ExtResource("3_tbgi4")]
 
