@@ -11,8 +11,6 @@ const tile_size := Vector2(17.0, 17.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
 
-var last_point: Vector2
-
 var slime_movement_remaining: int:
 	get:
 		return slime_movement_remaining
@@ -22,7 +20,6 @@ var slime_movement_remaining: int:
 
 func _ready() -> void:
 	TurnManager.connect("dice_rolled", reset_slime_movements_remaining)
-	last_point = global_position
 	slime_path.add_point(global_position)
 
 func _physics_process(_delta: float) -> void:
@@ -37,7 +34,6 @@ func _physics_process(_delta: float) -> void:
 			move(Vector2(1.0, 0.0))
 			
 	slime_path.add_point(global_position)
-	
 
 func reset_slime_movements_remaining(new_value: int) -> void:
 	slime_movement_remaining = new_value
