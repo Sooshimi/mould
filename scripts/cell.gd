@@ -33,8 +33,10 @@ func update_cell_status(cell_area_entered: String, body: CharacterBody2D) -> voi
 			left_infected = true
 		else:
 			right_infected = true
-	elif body is Human:
+	
+	if body is Human:
 		human_in_area.append(body)
+	
 	checked_if_infected(body)
 
 func _on_top_body_entered(body: CharacterBody2D) -> void:
