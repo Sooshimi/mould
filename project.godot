@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="mould"
-run/main_scene="uid://b6rwuldwktqp4"
+run/main_scene="uid://bclp6x7pkar2m"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 TurnManager="*res://scripts/globals/TurnManager.gd"
+SceneManager="*res://scripts/globals/SceneManager.gd"
 
 [display]
 
