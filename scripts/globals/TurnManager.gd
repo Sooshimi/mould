@@ -1,8 +1,13 @@
 extends Node
 
-var infected_cells: int
+var total_infected_cells: int = 0
 var total_cells: int
 var infected_humans: int
 
 signal dice_rolled(new_value)
 signal slime_moved(moves_left)
+signal infected_cells_changed(new_value)
+
+func increment_infected_cells(amount := 1) -> void:
+	total_infected_cells += amount
+	emit_signal("infected_cells_changed", total_infected_cells)

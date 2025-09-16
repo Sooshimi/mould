@@ -1,14 +1,15 @@
 extends Control
 
-@onready var dice_rolled_label := $DiceRolledLabel
-@onready var player_moves_left_label := $SlimeMovesRemainingLabel
-
 func _ready() -> void:
 	TurnManager.connect("dice_rolled", on_dice_rolled)
 	TurnManager.connect("slime_moved", on_slime_move)
+	TurnManager.connect("infected_cells_changed", on_infected_cells_changed)
 
 func on_dice_rolled(new_value: int) -> void:
-	dice_rolled_label.text = str("Rolled value is ", new_value)
+	$VBoxContainer/DiceRolledLabel.text = str("Rolled value is ", new_value)
 
 func on_slime_move(moves_left: int) -> void:
-	player_moves_left_label.text = str("Slime moves left: ", moves_left)
+	$VBoxContainer/SlimeMovesRemainingLabel.text = str("Slime moves left: ", moves_left)
+
+func on_infected_cells_changed(total_infected_cells: int) -> void:
+	$VBoxContainer/TotalInfectedCells.text = str("Total infected cells: ", total_infected_cells)

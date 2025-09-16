@@ -17,6 +17,13 @@ size = Vector2(571.375, 9.75)
 
 [node name="Game" type="Node2D"]
 
+[node name="UI" parent="." instance=ExtResource("7_trtic")]
+offset_left = 1045.0
+offset_top = 567.0
+offset_right = 1045.0
+offset_bottom = 567.0
+size_flags_horizontal = 4
+
 [node name="GridLines" type="TextureRect" parent="."]
 offset_left = 416.0
 offset_top = 72.0
@@ -46,8 +53,6 @@ position = Vector2(784.0743, 196.09969)
 
 [node name="Wolf" parent="." instance=ExtResource("6_kvuet")]
 position = Vector2(923.8152, 230.6943)
-
-[node name="UI" parent="." instance=ExtResource("7_trtic")]
 
 [node name="Dice" parent="." instance=ExtResource("8_ir15t")]
 position = Vector2(715, 718)

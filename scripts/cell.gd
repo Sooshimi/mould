@@ -26,8 +26,10 @@ func checked_if_infected(_body: CharacterBody2D) -> void:
 					infect_cell()
 
 func infect_cell() -> void:
-	cell_infected = true
-	$InfectedIndicator.show()
+	if not cell_infected:
+		cell_infected = true
+		TurnManager.increment_infected_cells()
+		$InfectedIndicator.show()
 
 func update_cell_status(cell_area_entered: String, body: CharacterBody2D) -> void:
 	if body is Slime:
