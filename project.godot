@@ -69,6 +69,7 @@ right={
 2d_physics/layer_2="slime"
 2d_physics/layer_3="human"
 2d_physics/layer_4="cell"
+2d_physics/layer_5="wolf"
 
 [rendering]
 

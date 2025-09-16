@@ -44,7 +44,7 @@ position = Vector2(435.21002, 370.15668)
 position = Vector2(749.31335, 404.96646)
 
 [node name="Human4" parent="." instance=ExtResource("6_tipki")]
-position = Vector2(644.5076, 161.01526)
+position = Vector2(784.0743, 196.09969)
 
 [node name="Wolf" parent="." instance=ExtResource("7_85g3d")]
 position = Vector2(923.8152, 230.6943)
@@ -58,26 +58,26 @@ position = Vector2(715, 718)
 position = Vector2(401, 73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryLeft"]
-position = Vector2(-3.9592285, 282.23367)
+position = Vector2(-0.23370361, 282.23367)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="GridBoundaryRight" type="Area2D" parent="."]
 position = Vector2(393, 73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryRight"]
-position = Vector2(608, 289)
+position = Vector2(600.54895, 289)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="GridBoundaryTop" type="Area2D" parent="."]
 position = Vector2(397, 77)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryTop"]
-position = Vector2(307, -21)
+position = Vector2(302.65356, -16.032639)
 shape = SubResource("RectangleShape2D_tipki")
 
 [node name="GridBoundaryBottom" type="Area2D" parent="."]
 position = Vector2(397, 69)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryBottom"]
-position = Vector2(303, 585)
+position = Vector2(303, 577.54895)
 shape = SubResource("RectangleShape2D_tipki")

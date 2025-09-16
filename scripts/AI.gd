@@ -1,6 +1,7 @@
 @abstract
 class_name AI extends CharacterBody2D
 
+@onready var detect_area := $DetectArea
 @onready var sprite := $Sprite2D
 @onready var up := $Up
 @onready var down := $Down
@@ -23,7 +24,7 @@ func _ready() -> void:
 func on_dice_rolled(_new_value) -> void:
 	move()
 
-func pick_random_direction() -> Vector2:
+func pick_direction() -> Vector2:
 	var directions := [move_up, move_down, move_left, move_right] # Up, Down, Left, Right
 	
 	if up.is_colliding():
@@ -43,7 +44,7 @@ func pick_random_direction() -> Vector2:
 	return direction
 
 func move() -> void:
-	direction = pick_random_direction()
+	direction = pick_direction()
 	var target_position = global_position + (direction * tile_size)
 	
 	# If there's an existing tween, terminate it. Prevents multiple tweens running at the same time.
