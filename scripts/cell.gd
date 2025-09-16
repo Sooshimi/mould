@@ -11,6 +11,7 @@ func checked_if_infected(_body: CharacterBody2D) -> void:
 	if top_infected and bottom_infected and left_infected and right_infected:
 		infect_cell()
 	
+	# If a human walks into the INFECTED CELL, infect the human
 	if cell_infected:
 		if human_in_area.size() > 0:
 			for human in human_in_area:
