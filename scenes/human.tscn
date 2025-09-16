@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bq4ps6bph0kv0" path="res://icon.svg" id="2_4otcn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371uh"]
-size = Vector2(12, 12)
+size = Vector2(22, 22)
 
 [node name="Human" type="CharacterBody2D"]
 collision_layer = 4
@@ -12,36 +12,36 @@ collision_mask = 8
 script = ExtResource("1_cwf78")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_4otcn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_371uh")
 
 [node name="Up" type="RayCast2D" parent="."]
-position = Vector2(0, -10)
-target_position = Vector2(0, -8)
+position = Vector2(0, -15)
+target_position = Vector2(0, -16)
 collision_mask = 5
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="Down" type="RayCast2D" parent="."]
-position = Vector2(0, 10)
-target_position = Vector2(0, 8)
+position = Vector2(0, 15)
+target_position = Vector2(0, 16)
 collision_mask = 5
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="Left" type="RayCast2D" parent="."]
-position = Vector2(-10, 0)
-target_position = Vector2(-8, 0)
+position = Vector2(-15, 0)
+target_position = Vector2(-16, 0)
 collision_mask = 5
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="Right" type="RayCast2D" parent="."]
-position = Vector2(10, 0)
-target_position = Vector2(8, 0)
+position = Vector2(15, 0)
+target_position = Vector2(16, 0)
 collision_mask = 5
 hit_from_inside = true
 collide_with_areas = true

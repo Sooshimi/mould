@@ -8,7 +8,7 @@ class_name Slime
 @onready var right := $Right
 @onready var slime_path := $"../SlimePath"
 
-const tile_size := Vector2(17.0, 17.0)
+const tile_size := Vector2(35.0, 35.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
 

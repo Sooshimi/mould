@@ -2,9 +2,9 @@ extends Node2D
 
 @export var cell_scene: PackedScene
 
-const CELL_SIZE := 16
-const BORDER_THICKNESS := 1
-const GRID_SIZE := 8
+const CELL_SIZE := 32
+const BORDER_THICKNESS := 3
+const GRID_SIZE := 16
 
 func _ready() -> void:
 	create_grid()

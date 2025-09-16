@@ -13,14 +13,14 @@ script = ExtResource("1_u7n8c")
 
 [node name="DiceRolledLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 200.0
-offset_right = 337.0
-offset_bottom = 223.0
+offset_left = 1024.0
+offset_top = 584.0
+offset_right = 1105.0
+offset_bottom = 607.0
 
 [node name="SlimeMovesRemainingLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 224.0
-offset_right = 353.0
-offset_bottom = 247.0
+offset_left = 1024.0
+offset_top = 616.0
+offset_right = 1121.0
+offset_bottom = 639.0

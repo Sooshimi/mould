@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d01eus5cvfa8x" path="res://scripts/cell.gd" id="1_upbjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngbm"]
-size = Vector2(2, 5.25)
+size = Vector2(2, 10.40625)
 
 [node name="Cell" type="Node2D"]
 script = ExtResource("1_upbjj")
@@ -15,10 +15,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.564706, 0, 1)
@@ -29,6 +29,7 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_6ngbm")
 
 [node name="Bottom" type="Area2D" parent="."]
@@ -37,6 +38,7 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_6ngbm")
 
 [node name="Left" type="Area2D" parent="."]
@@ -46,6 +48,7 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(1.0859971e-05, 3)
 shape = SubResource("RectangleShape2D_6ngbm")
 
 [node name="Right" type="Area2D" parent="."]
@@ -55,6 +58,7 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(-1.0859971e-05, 3)
 shape = SubResource("RectangleShape2D_6ngbm")
 
 [connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
