@@ -33,16 +33,14 @@ func _physics_process(_delta: float) -> void:
 			move(Vector2(-1.0, 0.0))
 		elif Input.is_action_just_pressed("right") and not right.is_colliding():
 			move(Vector2(1.0, 0.0))
-			
-	slime_path.add_point(global_position)
 
 func reset_slime_movements_remaining(new_value: int) -> void:
 	slime_movement_remaining = new_value
 
 func move(direction: Vector2) -> void:
 	slime_movement_remaining -= 1
-	
 	var target_position = global_position + (direction * tile_size)
+	slime_path.add_point(target_position)
 	
 	# If there's an existing tween, terminate it. Prevents multiple tweens running at the same time.
 	if sprite_node_position_tween:
