@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6rwuldwktqp4"]
+
+[ext_resource type="Texture2D" uid="uid://pplrjbme6b2b" path="res://assets/grid-32x32.png" id="1_gee14"]
+[ext_resource type="PackedScene" uid="uid://ccx1n4a6ip1g3" path="res://scenes/grid.tscn" id="2_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://ciagworcfis82" path="res://scenes/slime_path.tscn" id="3_vtaks"]
+[ext_resource type="PackedScene" uid="uid://h3smwm553ckt" path="res://scenes/characters/slime.tscn" id="4_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dkk3m1w4ceo65" path="res://scenes/characters/human.tscn" id="5_dinhu"]
+[ext_resource type="PackedScene" uid="uid://xfg7okyqnmb3" path="res://scenes/characters/wolf.tscn" id="6_kvuet"]
+[ext_resource type="PackedScene" uid="uid://bnx3m6tx4tt5v" path="res://scenes/ui/ui.tscn" id="7_trtic"]
+[ext_resource type="PackedScene" uid="uid://caorlff8v250a" path="res://scenes/dice.tscn" id="8_ir15t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(15.5, 588.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(571.375, 9.75)
+
+[node name="Game" type="Node2D"]
+
+[node name="GridLines" type="TextureRect" parent="."]
+offset_left = 416.0
+offset_top = 72.0
+offset_right = 979.0
+offset_bottom = 635.0
+texture = ExtResource("1_gee14")
+
+[node name="Grid" parent="." instance=ExtResource("2_0tnpc")]
+position = Vector2(432, 88)
+
+[node name="SlimePath" parent="." instance=ExtResource("3_vtaks")]
+
+[node name="Slime" parent="." instance=ExtResource("4_kvpfn")]
+position = Vector2(417.4912, 633.35547)
+
+[node name="Human" parent="." instance=ExtResource("5_dinhu")]
+position = Vector2(505.2314, 580.0626)
+
+[node name="Human2" parent="." instance=ExtResource("5_dinhu")]
+position = Vector2(435.21002, 370.15668)
+
+[node name="Human3" parent="." instance=ExtResource("5_dinhu")]
+position = Vector2(749.31335, 404.96646)
+
+[node name="Human4" parent="." instance=ExtResource("5_dinhu")]
+position = Vector2(784.0743, 196.09969)
+
+[node name="Wolf" parent="." instance=ExtResource("6_kvuet")]
+position = Vector2(923.8152, 230.6943)
+
+[node name="UI" parent="." instance=ExtResource("7_trtic")]
+
+[node name="Dice" parent="." instance=ExtResource("8_ir15t")]
+position = Vector2(715, 718)
+
+[node name="GridBoundaryLeft" type="Area2D" parent="."]
+position = Vector2(401, 73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryLeft"]
+position = Vector2(-0.23370361, 282.23367)
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="GridBoundaryRight" type="Area2D" parent="."]
+position = Vector2(393, 73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryRight"]
+position = Vector2(600.54895, 289)
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="GridBoundaryTop" type="Area2D" parent="."]
+position = Vector2(397, 77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryTop"]
+position = Vector2(302.65356, -16.032639)
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="GridBoundaryBottom" type="Area2D" parent="."]
+position = Vector2(397, 69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridBoundaryBottom"]
+position = Vector2(303, 577.54895)
+shape = SubResource("RectangleShape2D_tipki")
