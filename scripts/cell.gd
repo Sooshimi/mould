@@ -10,14 +10,19 @@ var human_in_area := []
 func checked_if_infected(_body: CharacterBody2D) -> void:
 	if top_infected and bottom_infected and left_infected and right_infected:
 		infect_cell()
+	
+	if cell_infected:
 		if human_in_area.size() > 0:
 			for human in human_in_area:
-				human.infected = true
+				if is_instance_valid(human):
+					human.infected = true
 	
+	# If an INFECTED HUMAN walks into the cell, infect the cell
 	if human_in_area.size() > 0:
 		for human in human_in_area:
-			if human.infected:
-				infect_cell()
+			if is_instance_valid(human):
+				if human.infected:
+					infect_cell()
 
 func infect_cell() -> void:
 	cell_infected = true
