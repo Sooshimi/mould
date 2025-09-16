@@ -25,23 +25,7 @@ func on_dice_rolled(_new_value) -> void:
 	move()
 
 func pick_direction() -> Vector2:
-	var directions := [move_up, move_down, move_left, move_right] # Up, Down, Left, Right
-	
-	if up.is_colliding():
-		directions.erase(move_up)
-	if down.is_colliding():
-		directions.erase(move_down)
-	if left.is_colliding():
-		directions.erase(move_left)
-	if right.is_colliding():
-		directions.erase(move_right)
-	
-	if directions.size() > 0:
-		direction = directions[randi() % directions.size()]
-	else:
-		direction = Vector2.ZERO
-	
-	return direction
+	return Vector2.ZERO
 
 func move() -> void:
 	direction = pick_direction()
