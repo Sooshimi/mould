@@ -1,5 +1,5 @@
-@abstract
-class_name AI extends CharacterBody2D
+@abstract class_name AI extends CharacterBody2D
+@abstract func pick_direction() -> Vector2
 
 @onready var detect_area := $DetectArea
 @onready var sprite := $Sprite2D
@@ -20,12 +20,9 @@ var infected := false
 
 func _ready() -> void:
 	TurnManager.connect("dice_rolled", on_dice_rolled)
-	
+
 func on_dice_rolled(_new_value) -> void:
 	move()
-
-func pick_direction() -> Vector2:
-	return Vector2.ZERO
 
 func move() -> void:
 	direction = pick_direction()
