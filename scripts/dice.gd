@@ -1,12 +1,7 @@
 extends Node2D
 
 var dice_faces = [
-	preload("res://assets/dice/dieWhite_border1.png"),
-	preload("res://assets/dice/dieWhite_border2.png"),
-	preload("res://assets/dice/dieWhite_border3.png"),
-	preload("res://assets/dice/dieWhite_border4.png"),
-	preload("res://assets/dice/dieWhite_border5.png"),
-	preload("res://assets/dice/dieWhite_border6.png")
+	preload("res://assets/dice/dieWhite_border1.png")
 ]
 
 @onready var face := $Face
@@ -26,8 +21,8 @@ func _on_button_pressed() -> void:
 
 func roll_dice() -> void:
 	if not roll_timer.is_stopped():
-		current_face = randi_range(0, 5)
+		current_face = 0
 		face.texture = dice_faces[current_face]
 
 func _on_roll_timer_timeout():
-	TurnManager.dice_rolled.emit(current_face+1)
+	TurnManager.dice_rolled.emit(current_face+10)

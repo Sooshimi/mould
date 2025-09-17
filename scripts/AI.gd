@@ -16,7 +16,6 @@ const move_right := Vector2(1.0, 0.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
 var direction: Vector2
-var infected := false
 
 func _ready() -> void:
 	TurnManager.connect("dice_rolled", on_dice_rolled)

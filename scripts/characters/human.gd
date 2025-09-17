@@ -3,6 +3,11 @@ class_name Human
 
 var caught_by_wolf := false
 var die_next_turn := false
+var infected := false:
+	set(is_true):
+		if !infected and is_true:
+			TurnManager.increment_infected_humans()
+		infected = is_true
 
 func pick_direction() -> Vector2:
 	if not caught_by_wolf:
