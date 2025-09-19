@@ -35,13 +35,14 @@ func _physics_process(_delta: float) -> void:
 			move(Vector2(1.0, 0.0))
 
 func move(direction: Vector2) -> void:
-	hp -= 1
-	var target_position = global_position + (direction * tile_size)
-	slime_path.add_point(target_position)
-	
-	# If there's an existing tween, terminate it. Prevents multiple tweens running at the same time.
-	if sprite_node_position_tween:
-		sprite_node_position_tween.kill()
-	sprite_node_position_tween = create_tween()
-	sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) # Sets Tween to update in sync with the physics frame step
-	sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)
+	if TurnManager.current_state == 1:
+		hp -= 1
+		var target_position = global_position + (direction * tile_size)
+		slime_path.add_point(target_position)
+		
+		# If there's an existing tween, terminate it. Prevents multiple tweens running at the same time.
+		if sprite_node_position_tween:
+			sprite_node_position_tween.kill()
+		sprite_node_position_tween = create_tween()
+		sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) # Sets Tween to update in sync with the physics frame step
+		sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)

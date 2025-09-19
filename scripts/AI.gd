@@ -19,7 +19,4 @@ var walk_speed := 0.3
 var direction: Vector2
 
 func _ready() -> void:
-	TurnManager.connect("player_round_end", on_player_round_end)
-
-func on_player_round_end() -> void:
-	move()
+	TurnManager.connect("enemy_start_moving", move)

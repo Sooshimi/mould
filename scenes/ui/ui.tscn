@@ -26,3 +26,10 @@ text = "Total infected humans: 0"
 
 [node name="SlimeMovesRemainingLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "HP: "
+
+[node name="TurnLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 81.0
+offset_right = 362.0
+offset_bottom = 104.0
