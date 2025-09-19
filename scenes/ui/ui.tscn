@@ -24,8 +24,5 @@ text = "Total infected cells: 0"
 layout_mode = 2
 text = "Total infected humans: 0"
 
-[node name="DiceRolledLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="SlimeMovesRemainingLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2

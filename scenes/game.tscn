@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6rwuldwktqp4"]
+[gd_scene load_steps=10 format=3 uid="uid://b6rwuldwktqp4"]
 
 [ext_resource type="Texture2D" uid="uid://pplrjbme6b2b" path="res://assets/grid-32x32.png" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://ccx1n4a6ip1g3" path="res://scenes/grid.tscn" id="2_0tnpc"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dkk3m1w4ceo65" path="res://scenes/characters/human.tscn" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://xfg7okyqnmb3" path="res://scenes/characters/wolf.tscn" id="6_kvuet"]
 [ext_resource type="PackedScene" uid="uid://bnx3m6tx4tt5v" path="res://scenes/ui/ui.tscn" id="7_trtic"]
-[ext_resource type="PackedScene" uid="uid://caorlff8v250a" path="res://scenes/dice.tscn" id="8_ir15t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(15.5, 588.5)
@@ -53,9 +52,6 @@ position = Vector2(784.0743, 196.09969)
 
 [node name="Wolf" parent="." instance=ExtResource("6_kvuet")]
 position = Vector2(923.8152, 230.6943)
-
-[node name="Dice" parent="." instance=ExtResource("8_ir15t")]
-position = Vector2(715, 718)
 
 [node name="GridBoundaryLeft" type="Area2D" parent="."]
 position = Vector2(401, 73)
