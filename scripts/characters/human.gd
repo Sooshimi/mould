@@ -9,6 +9,9 @@ var infected := false:
 			TurnManager.increment_infected_humans()
 		infected = is_true
 
+func infected_colour() -> void:
+	$Sprite2D.modulate = Color(0.071, 0.557, 0.176, 1.0)
+
 func pick_direction() -> Vector2:
 	if not caught_by_wolf:
 		var directions := [move_up, move_down, move_left, move_right] # Up, Down, Left, Right
