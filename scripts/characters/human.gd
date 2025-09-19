@@ -43,7 +43,7 @@ func move() -> void:
 	sprite_node_position_tween = create_tween()
 	sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) # Sets Tween to update in sync with the physics frame step
 	sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)
-	TurnManager.current_turn = TurnManager.Turn.Slime
+	TurnManager.player_round_start()
 
 func _on_wolf_detect_area_body_entered(_body: Wolf) -> void:
 	caught_by_wolf = true

@@ -27,3 +27,7 @@ func deplete_slime_moves_left(amount := 1) -> void:
 	if slime_moves_left == 0:
 		player_round_end.emit()
 		current_turn = Turn.Enemy
+
+func player_round_start() -> void:
+	current_turn = Turn.Slime
+	slime_moves_left = 5
