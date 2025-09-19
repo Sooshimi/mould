@@ -38,6 +38,18 @@ func pick_direction() -> Vector2:
 		
 		return direction
 
+func move() -> void:
+	direction = pick_direction()
+	var target_position = global_position + (direction * tile_size)
+	
+	# If there's an existing tween, terminate it. Prevents multiple tweens running at the same time.
+	if sprite_node_position_tween:
+		sprite_node_position_tween.kill()
+	sprite_node_position_tween = create_tween()
+	sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) # Sets Tween to update in sync with the physics frame step
+	sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)
+	TurnManager.enemy_turn_end()
+
 func _on_human_detect_area_body_entered(body: Human):
 	humans_detected.append(body)
 

@@ -9,6 +9,9 @@ var infected := false:
 			TurnManager.increment_infected_humans()
 		infected = is_true
 
+func infected_colour() -> void:
+	$Sprite2D.modulate = Color(0.071, 0.557, 0.176, 1.0)
+
 func pick_direction() -> Vector2:
 	if not caught_by_wolf:
 		var directions := [move_up, move_down, move_left, move_right] # Up, Down, Left, Right
@@ -29,6 +32,18 @@ func pick_direction() -> Vector2:
 		return direction
 	else:
 		return Vector2.ZERO
+
+func move() -> void:
+	direction = pick_direction()
+	var target_position = global_position + (direction * tile_size)
+	
+	# If there's an existing tween, terminate it. Prevents multiple tweens running at the same time.
+	if sprite_node_position_tween:
+		sprite_node_position_tween.kill()
+	sprite_node_position_tween = create_tween()
+	sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) # Sets Tween to update in sync with the physics frame step
+	sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)
+	TurnManager.enemy_turn_end()
 
 func _on_wolf_detect_area_body_entered(_body: Wolf) -> void:
 	caught_by_wolf = true

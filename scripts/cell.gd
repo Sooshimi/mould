@@ -11,14 +11,7 @@ func checked_if_infected(_body: CharacterBody2D) -> void:
 	if top_infected and bottom_infected and left_infected and right_infected:
 		infect_cell()
 	
-	# If a human walks into the INFECTED CELL, infect the human
-	if cell_infected:
-		if human_in_area.size() > 0:
-			for human in human_in_area:
-				if is_instance_valid(human):
-					human.infected = true
-	
-	# If an INFECTED HUMAN walks into the cell, infect the cell
+	# If an INFECTED HUMAN walks into a cell, infect the cell
 	if human_in_area.size() > 0:
 		for human in human_in_area:
 			if is_instance_valid(human):
@@ -30,6 +23,13 @@ func infect_cell() -> void:
 		cell_infected = true
 		TurnManager.increment_infected_cells()
 		$InfectedIndicator.show()
+		
+		# If a human walks into the INFECTED CELL, infect the human
+		if human_in_area.size() > 0:
+			for human in human_in_area:
+				if is_instance_valid(human):
+					human.infected = true
+					human.infected_colour()
 
 func update_cell_status(cell_area_entered: String, body: CharacterBody2D) -> void:
 	if body is Slime:
