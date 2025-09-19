@@ -11,10 +11,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u7n8c")
 
+[node name="TurnLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 362.0
+offset_bottom = 23.0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
+offset_top = 64.0
 offset_right = 362.0
-offset_bottom = 271.0
+offset_bottom = 335.0
 
 [node name="TotalInfectedCells" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -27,9 +33,3 @@ text = "Total infected humans: 0"
 [node name="SlimeMovesRemainingLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "HP: "
-
-[node name="TurnLabel" type="Label" parent="."]
-layout_mode = 0
-offset_top = 81.0
-offset_right = 362.0
-offset_bottom = 104.0

@@ -17,10 +17,10 @@ size = Vector2(571.375, 9.75)
 [node name="Game" type="Node2D"]
 
 [node name="UI" parent="." instance=ExtResource("7_trtic")]
-offset_left = 1045.0
-offset_top = 567.0
-offset_right = 1045.0
-offset_bottom = 567.0
+offset_left = 1016.0
+offset_top = 381.0
+offset_right = 1016.0
+offset_bottom = 381.0
 size_flags_horizontal = 4
 
 [node name="GridLines" type="TextureRect" parent="."]
