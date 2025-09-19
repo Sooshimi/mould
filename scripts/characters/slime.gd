@@ -12,7 +12,7 @@ const tile_size := Vector2(35.0, 35.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
 
-var hp: int = 5:
+var hp: int = 20:
 	get:
 		return hp
 	set(new_value):

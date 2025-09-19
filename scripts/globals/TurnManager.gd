@@ -66,6 +66,7 @@ func enemy_turn_end() -> void:
 		await get_tree().create_timer(1.0).timeout
 		slime_turn_start()
 	else:
+		await get_tree().create_timer(1.0).timeout
 		lose_end_game()
 
 func check_hp(current_hp: int) -> void: # called from slime script
