@@ -11,7 +11,7 @@ var total_infected_cells: int
 var total_infected_humans: int
 const slime_moves_left_default := 5
 var slime_moves_left: int
-var checked_hp: int
+var checked_hp: int = 1 # so it doesn't trigger check_slime_moves_and_hp_left() on game start
 
 signal slime_round_start
 signal slime_round_end
@@ -21,7 +21,7 @@ signal enemy_round_end
 signal win
 signal lose
 
-signal slime_moved(new_value) # used in Slime script
+signal hp_updated(new_value) # used in Slime script
 signal infected_cells_changed(new_value)
 signal infected_humans_changed(new_value)
 
@@ -98,5 +98,8 @@ func increment_infected_humans(amount := 1) -> void:
 
 func deplete_slime_moves_left(amount := 1) -> void:
 	slime_moves_left -= amount
-	if slime_moves_left == 0:
+	check_slime_moves_and_hp_left()
+
+func check_slime_moves_and_hp_left() -> void:
+	if slime_moves_left == 0 or checked_hp == 0:
 		slime_turn_end()
