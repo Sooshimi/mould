@@ -7,6 +7,7 @@ func _ready() -> void:
 	TurnManager.connect("slime_round_start", on_slime_round)
 	TurnManager.connect("enemy_round_start", on_enemy_round)
 	TurnManager.connect("lose", on_lose)
+	TurnManager.connect("win", on_win)
 
 func on_slime_move(hp: int) -> void:
 	$VBoxContainer/SlimeMovesRemainingLabel.text = str("HP: ", hp)
@@ -25,3 +26,6 @@ func on_enemy_round() -> void:
 
 func on_lose() -> void:
 	$TurnLabel.text = "You lost!"
+
+func on_win() -> void:
+	$TurnLabel.text = "You win!"
