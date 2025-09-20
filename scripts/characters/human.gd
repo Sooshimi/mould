@@ -10,7 +10,7 @@ var infected := false:
 		infected = is_true
 
 func infected_colour() -> void:
-	$Sprite2D.modulate = Color(0.071, 0.557, 0.176, 1.0)
+	$Sprite2D.texture = preload("res://assets/infected_human_counter.png")
 
 func pick_direction() -> Vector2:
 	if not caught_by_wolf:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkk3m1w4ceo65"]
 
 [ext_resource type="Script" uid="uid://f8tqfrrly1hp" path="res://scripts/characters/human.gd" id="1_cwf78"]
-[ext_resource type="Texture2D" uid="uid://bq4ps6bph0kv0" path="res://icon.svg" id="2_4otcn"]
+[ext_resource type="Texture2D" uid="uid://cfffuql8upxb7" path="res://assets/human_counter.png" id="2_nkxto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371uh"]
 size = Vector2(22, 22)
@@ -18,8 +18,7 @@ collision_mask = 9
 script = ExtResource("1_cwf78")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_4otcn")
+texture = ExtResource("2_nkxto")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_371uh")
