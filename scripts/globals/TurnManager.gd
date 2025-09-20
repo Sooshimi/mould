@@ -6,9 +6,13 @@ var current_level = Level.TUTORIAL
 enum TurnState {SLIME_TURN_START, SLIME_ACTION, SLIME_TURN_END, ENEMY_TURN_START, ENEMY_ACTION, ENEMY_TURN_END, END_GAME}
 var current_state = TurnState.SLIME_TURN_START
 
-const level_1_total_cells := 8
-const level_2_total_cells := 16
-const level_2_infected_cells_target := 192 # out of 256 (75%)
+const tutorial_total_cells := 9
+const tutorial_infected_cells_target := 6 # out of 256 (75%)
+const level_1_total_cells := 256
+const level_1_infected_cells_target := 192 # out of 256 (75%)
+
+var total_cells: int
+var infected_cells_target: int
 
 var total_infected_cells: int
 var total_infected_humans: int
@@ -35,10 +39,14 @@ signal tutorial_start
 signal game_start
 
 func start_tutorial() -> void:
+	total_cells = tutorial_total_cells
+	infected_cells_target = tutorial_infected_cells_target
 	slime_turn_start()
-	tutorial_start.emit() # Game script listens to this
+	tutorial_start.emit() # Game and UI script listens to this
 
 func start_game() -> void:
+	total_cells = level_1_total_cells
+	infected_cells_target = level_1_infected_cells_target
 	slime_turn_start()
 	game_start.emit() # Game script listens to this
 
@@ -82,9 +90,9 @@ func enemy_turn_end() -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	
-	if checked_hp == 0 and (total_infected_cells < level_2_infected_cells_target):
+	if checked_hp == 0 and (total_infected_cells < infected_cells_target):
 		lose_end_game()
-	elif checked_hp >= 0 and (total_infected_cells >= level_2_infected_cells_target):
+	elif checked_hp >= 0 and (total_infected_cells >= infected_cells_target):
 		win_end_game()
 	else:
 		slime_turn_start()
