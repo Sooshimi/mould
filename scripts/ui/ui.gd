@@ -57,6 +57,8 @@ func _on_skip_tutorial_button_pressed():
 func update_dialogue() -> void:
 	if current_dialogue_index < dialogue.size():
 		$DialogueBox/DialogueText.text = dialogue[current_dialogue_index]
+		if current_dialogue_index == dialogue.size() - 1:
+			$DialogueBox/NextButton.hide()
 
 func _on_next_button_pressed():
 	current_dialogue_index += 1
