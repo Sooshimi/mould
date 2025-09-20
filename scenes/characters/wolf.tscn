@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://xfg7okyqnmb3"]
+[gd_scene load_steps=7 format=3 uid="uid://xfg7okyqnmb3"]
 
 [ext_resource type="Script" uid="uid://b65iqcf5yf862" path="res://scripts/characters/wolf.gd" id="1_jrowp"]
 [ext_resource type="Texture2D" uid="uid://bq4ps6bph0kv0" path="res://icon.svg" id="2_3a5b2"]
@@ -9,6 +9,9 @@ size = Vector2(22, 22)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrowp"]
 radius = 159.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1dyp"]
+size = Vector2(3, 3)
 
 [node name="Wolf" type="CharacterBody2D"]
 collision_layer = 16
@@ -25,7 +28,7 @@ shape = SubResource("RectangleShape2D_371uh")
 
 [node name="DetectArea" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
 shape = SubResource("CircleShape2D_jrowp")
@@ -61,5 +64,41 @@ collide_with_areas = true
 [node name="WolfKillHumanSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d1dyp")
 
+[node name="UpArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpArea"]
+position = Vector2(3, -16)
+shape = SubResource("RectangleShape2D_d1dyp")
+
+[node name="DownArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownArea"]
+position = Vector2(-3, 16)
+shape = SubResource("RectangleShape2D_d1dyp")
+
+[node name="LeftArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea"]
+position = Vector2(-16, -3)
+shape = SubResource("RectangleShape2D_d1dyp")
+
+[node name="RightArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea"]
+position = Vector2(16, 3)
+shape = SubResource("RectangleShape2D_d1dyp")
+
 [connection signal="body_entered" from="DetectArea" to="." method="_on_human_detect_area_body_entered"]
 [connection signal="body_exited" from="DetectArea" to="." method="_on_human_detect_area_body_exited"]
+[connection signal="body_entered" from="UpArea" to="." method="_on_up_area_body_entered"]
+[connection signal="body_entered" from="DownArea" to="." method="_on_down_area_body_entered"]
+[connection signal="body_entered" from="LeftArea" to="." method="_on_left_area_body_entered"]
+[connection signal="body_entered" from="RightArea" to="." method="_on_right_area_body_entered"]

@@ -40,19 +40,19 @@ position = Vector2(432, 88)
 position = Vector2(417.4912, 633.35547)
 
 [node name="Human" parent="." instance=ExtResource("5_dinhu")]
-position = Vector2(505.2314, 580.0626)
+position = Vector2(471, 580)
 
 [node name="Human2" parent="." instance=ExtResource("5_dinhu")]
 position = Vector2(435.21002, 370.15668)
 
 [node name="Human3" parent="." instance=ExtResource("5_dinhu")]
-position = Vector2(749.31335, 404.96646)
+position = Vector2(820, 580)
 
 [node name="Human4" parent="." instance=ExtResource("5_dinhu")]
 position = Vector2(784.0743, 196.09969)
 
 [node name="Wolf" parent="." instance=ExtResource("6_kvuet")]
-position = Vector2(923.8152, 230.6943)
+position = Vector2(715, 370)
 
 [node name="GridBoundaryLeft" type="Area2D" parent="."]
 position = Vector2(401, 73)

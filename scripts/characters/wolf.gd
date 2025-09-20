@@ -3,6 +3,10 @@ class_name Wolf
 
 var humans_detected := []
 var human_to_chase: Human
+var slime_passed_top := false
+var slime_passed_bottom := false
+var slime_passed_left := false
+var slime_passed_right := false
 
 func pick_direction() -> Vector2:
 	if humans_detected.size() > 0:
@@ -48,6 +52,12 @@ func move() -> void:
 	sprite_node_position_tween = create_tween()
 	sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) # Sets Tween to update in sync with the physics frame step
 	sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)
+	
+	slime_passed_top = false
+	slime_passed_bottom = false
+	slime_passed_left = false
+	slime_passed_right = false
+	
 	TurnManager.enemy_turn_end()
 
 func _on_human_detect_area_body_entered(body: Human):
@@ -58,3 +68,23 @@ func _on_human_detect_area_body_exited(body: Human):
 
 func play_kill_audio() -> void:
 	$WolfKillHumanSFX.play()
+
+func check_killed_by_slime() -> void:
+	if slime_passed_top and slime_passed_bottom and slime_passed_left and slime_passed_right:
+		queue_free()
+
+func _on_up_area_body_entered(_body: Slime) -> void:
+	slime_passed_top = true
+	check_killed_by_slime()
+
+func _on_down_area_body_entered(_body: Slime) -> void:
+	slime_passed_bottom = true
+	check_killed_by_slime()
+
+func _on_left_area_body_entered(_body: Slime) -> void:
+	slime_passed_left = true
+	check_killed_by_slime()
+
+func _on_right_area_body_entered(_body: Slime) -> void:
+	slime_passed_right = true
+	check_killed_by_slime()
