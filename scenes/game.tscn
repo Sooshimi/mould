@@ -93,6 +93,7 @@ size_flags_horizontal = 4
 position = Vector2(416, 64)
 
 [node name="SlimePath" parent="." instance=ExtResource("3_vtaks")]
+LINE_WIDTH = 5
 
 [node name="Slime" parent="." instance=ExtResource("4_kvpfn")]
 position = Vector2(416, 576)

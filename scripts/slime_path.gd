@@ -1,7 +1,7 @@
 extends Node2D
 
 var point_list := []
-const LINE_WIDTH := 6.0
+@export var LINE_WIDTH: int
 
 func add_point(point: Vector2) -> void:
 	point_list.append(point)
