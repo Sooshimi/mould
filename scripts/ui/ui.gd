@@ -9,16 +9,18 @@ func _ready() -> void:
 	TurnManager.connect("enemy_round_start", on_enemy_round)
 	TurnManager.connect("lose", on_lose)
 	TurnManager.connect("win", on_win)
+	$TopBar/InfectedCellsBar.max_value = TurnManager.level_2_total_cells
 
 func on_hp_updated(hp: int) -> void:
-	$HBoxContainer/HPLabel.text = str("HP: ", hp)
-	$HBoxContainer/HPBar.value = hp
+	$TopBar/HBoxContainer/HPLabel.text = str("HP: ", hp)
+	$TopBar/HBoxContainer/HPBar.value = hp
 
 func on_max_hp_updated(max_hp: int) -> void:
-	$HBoxContainer/HPBar.max_value = max_hp
+	$TopBar/HBoxContainer/HPBar.max_value = max_hp
 
 func on_infected_cells_changed(total_infected_cells: int) -> void:
 	$VBoxContainer/TotalInfectedCells.text = str("Total infected cells: ", total_infected_cells)
+	$TopBar/InfectedCellsBar.value = total_infected_cells
 
 func on_infected_humans_changed(total_infected_humans: int) -> void:
 	$VBoxContainer/TotalInfectedHumans.text = str("Total infected humans: ", total_infected_humans)
