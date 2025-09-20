@@ -26,9 +26,12 @@ func _ready() -> void:
 	slime_path.add_point(global_position)
 	TurnManager.connect("infected_humans_changed", increase_hp_from_humans)
 	TurnManager.connect("increase_hp_from_infected_cells", increase_hp_from_cells)
+	TurnManager.max_hp_updated.emit(max_hp)
+	TurnManager.hp_updated.emit(hp)
 
 func increase_hp_from_cells() -> void:
 	hp = min(hp + 5, max_hp)
+	TurnManager.max_hp_updated.emit(max_hp)
 
 func increase_hp_from_humans(_new_value) -> void:
 	max_hp += 1

@@ -22,7 +22,8 @@ signal enemy_round_end
 signal win
 signal lose
 
-signal hp_updated(new_value) # used in Slime script
+signal hp_updated(new_value) # used in Slime and UI script
+signal max_hp_updated(new_value) # used in Slime and UI script
 signal infected_cells_changed(new_value)
 signal infected_humans_changed(new_value)
 signal increase_hp_from_infected_cells

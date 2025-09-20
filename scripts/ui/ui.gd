@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	TurnManager.connect("hp_updated", on_hp_updated)
+	TurnManager.connect("max_hp_updated", on_max_hp_updated)
 	TurnManager.connect("infected_cells_changed", on_infected_cells_changed)
 	TurnManager.connect("infected_humans_changed", on_infected_humans_changed)
 	TurnManager.connect("slime_round_start", on_slime_round)
@@ -11,6 +12,10 @@ func _ready() -> void:
 
 func on_hp_updated(hp: int) -> void:
 	$VBoxContainer/HPLabel.text = str("HP: ", hp)
+	$HPBar.value = hp
+
+func on_max_hp_updated(max_hp: int) -> void:
+	$HPBar.max_value = max_hp
 
 func on_infected_cells_changed(total_infected_cells: int) -> void:
 	$VBoxContainer/TotalInfectedCells.text = str("Total infected cells: ", total_infected_cells)
