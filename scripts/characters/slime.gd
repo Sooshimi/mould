@@ -11,8 +11,8 @@ class_name Slime
 const tile_size := Vector2(35.0, 35.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
-
-var hp: int = 20:
+var max_hp: int = 20
+var hp = max_hp:
 	get:
 		return hp
 	set(new_value):
@@ -27,7 +27,11 @@ func _ready() -> void:
 	TurnManager.connect("infected_humans_changed", increase_hp)
 
 func increase_hp(_new_value) -> void:
-	hp += 1
+	hp = min(hp + 5, max_hp)
+	increase_max_hp(_new_value)
+
+func increase_max_hp(_new_value) -> void:
+	max_hp += 1
 
 func _physics_process(_delta: float) -> void:
 	if (not sprite_node_position_tween or not sprite_node_position_tween.is_running()) and hp > 0:
