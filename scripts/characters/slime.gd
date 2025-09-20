@@ -7,6 +7,21 @@ class_name Slime
 @onready var left := $Left
 @onready var right := $Right
 @onready var slime_path := $"../SlimePath"
+@onready var slime_move_sfx := $SlimeMoveSFX
+
+var slime_move_sfx_list = [
+	preload("res://audio/SFX/fungi_movement/move_1.wav"),
+	preload("res://audio/SFX/fungi_movement/move_2.wav"),
+	preload("res://audio/SFX/fungi_movement/move_3.wav"),
+	preload("res://audio/SFX/fungi_movement/move_4.wav"),
+	preload("res://audio/SFX/fungi_movement/move_5.wav"),
+	preload("res://audio/SFX/fungi_movement/move_6.wav"),
+	preload("res://audio/SFX/fungi_movement/move_7.wav"),
+	preload("res://audio/SFX/fungi_movement/move_8.wav"),
+	preload("res://audio/SFX/fungi_movement/move_9.wav"),
+	preload("res://audio/SFX/fungi_movement/move_10.wav"),
+	preload("res://audio/SFX/fungi_movement/move_11.wav")
+]
 
 const tile_size := Vector2(35.0, 35.0)
 var sprite_node_position_tween: Tween
@@ -61,3 +76,7 @@ func move(direction: Vector2) -> void:
 		sprite_node_position_tween = create_tween()
 		sprite_node_position_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) # Sets Tween to update in sync with the physics frame step
 		sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)
+		
+		var random_sfx_index = randi() % slime_move_sfx_list.size()
+		slime_move_sfx.stream = slime_move_sfx_list[random_sfx_index]
+		slime_move_sfx.play()

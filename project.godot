@@ -37,6 +37,7 @@ project/assembly_name="mould"
 
 folder_colors={
 "res://assets/": "yellow",
+"res://audio/": "purple",
 "res://scenes/": "green",
 "res://scripts/": "pink"
 }
