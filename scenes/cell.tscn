@@ -11,6 +11,7 @@ script = ExtResource("1_upbjj")
 
 [node name="InfectedIndicator" type="TextureRect" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0.70000005)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
