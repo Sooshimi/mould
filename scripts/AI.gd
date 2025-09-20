@@ -9,7 +9,7 @@
 @onready var left := $Left
 @onready var right := $Right
 
-const tile_size := Vector2(35.0, 35.0)
+const tile_size := Vector2(32.0, 32.0)
 const move_up := Vector2(0.0, -1.0)
 const move_down := Vector2(0.0, 1.0)
 const move_left := Vector2(-1.0, 0.0)

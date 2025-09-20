@@ -23,7 +23,7 @@ var slime_move_sfx_list = [
 	preload("res://audio/SFX/fungi_movement/move_11.wav")
 ]
 
-const tile_size := Vector2(35.0, 35.0)
+const tile_size := Vector2(32.0, 32.0)
 var sprite_node_position_tween: Tween
 var walk_speed := 0.3
 var max_hp: int = 20

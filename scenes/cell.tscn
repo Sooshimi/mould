@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d01eus5cvfa8x" path="res://scripts/cell.gd" id="1_upbjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngbm"]
-size = Vector2(2, 10.40625)
+size = Vector2(2, 9.203125)
 
 [node name="Cell" type="Node2D"]
 script = ExtResource("1_upbjj")
@@ -48,7 +48,7 @@ collision_layer = 8
 collision_mask = 22
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
-position = Vector2(1.0859971e-05, 3)
+position = Vector2(1.085997e-05, 2.3984375)
 shape = SubResource("RectangleShape2D_6ngbm")
 
 [node name="Right" type="Area2D" parent="."]
