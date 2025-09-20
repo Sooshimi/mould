@@ -31,10 +31,16 @@ signal infected_cells_changed(new_value)
 signal infected_humans_changed(new_value)
 signal increase_hp_from_infected_cells
 
+signal tutorial_start
+signal game_start
+
+func start_tutorial() -> void:
+	slime_turn_start()
+	tutorial_start.emit() # Game script listens to this
+
 func start_game() -> void:
 	slime_turn_start()
-	total_infected_cells = 0
-	total_infected_humans = 0
+	game_start.emit() # Game script listens to this
 
 func slime_turn_start() -> void:
 	print("slime turn start")

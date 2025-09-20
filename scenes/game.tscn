@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6rwuldwktqp4"]
+[gd_scene load_steps=11 format=3 uid="uid://b6rwuldwktqp4"]
 
+[ext_resource type="Script" uid="uid://brebkn8c3ihrw" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://pplrjbme6b2b" path="res://assets/grid-32x32.png" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://ccx1n4a6ip1g3" path="res://scenes/grid.tscn" id="2_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://ciagworcfis82" path="res://scenes/slime_path.tscn" id="3_vtaks"]
@@ -15,8 +16,16 @@ size = Vector2(15.5, 588.5)
 size = Vector2(571.375, 9.75)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_0tnpc")
 
-[node name="UI" parent="." instance=ExtResource("7_trtic")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(402, 583)
+enabled = false
+zoom = Vector2(5, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_trtic")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

@@ -36,3 +36,7 @@ func on_lose() -> void:
 
 func on_win() -> void:
 	$TurnLabel.text = "You win!"
+
+func _on_skip_tutorial_button_pressed():
+	TurnManager.start_game()
+	$SkipTutorialButton.hide()
