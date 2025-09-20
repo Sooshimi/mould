@@ -21,7 +21,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.564706, 0, 1)
+color = Color(0.71387357, 0.8350781, 0.2347951, 0.3)
 
 [node name="Top" type="Area2D" parent="." groups=["cell"]]
 position = Vector2(0, -4)

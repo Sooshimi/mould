@@ -9,4 +9,4 @@ func add_point(point: Vector2) -> void:
 
 func _draw() -> void:
 	if point_list.size() > 0:
-		draw_polyline(point_list, Color.LIME_GREEN, LINE_WIDTH)
+		draw_polyline(point_list, Color("#d3e07F"), LINE_WIDTH)
