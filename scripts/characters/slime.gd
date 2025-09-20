@@ -24,14 +24,15 @@ var hp = max_hp:
 
 func _ready() -> void:
 	slime_path.add_point(global_position)
-	TurnManager.connect("infected_humans_changed", increase_hp)
+	TurnManager.connect("infected_humans_changed", increase_hp_from_humans)
+	TurnManager.connect("increase_hp_from_infected_cells", increase_hp_from_cells)
 
-func increase_hp(_new_value) -> void:
+func increase_hp_from_cells() -> void:
 	hp = min(hp + 5, max_hp)
-	increase_max_hp(_new_value)
 
-func increase_max_hp(_new_value) -> void:
+func increase_hp_from_humans(_new_value) -> void:
 	max_hp += 1
+	hp = min(hp + 5, max_hp)
 
 func _physics_process(_delta: float) -> void:
 	if (not sprite_node_position_tween or not sprite_node_position_tween.is_running()) and hp > 0:

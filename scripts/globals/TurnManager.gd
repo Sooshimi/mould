@@ -12,6 +12,7 @@ var total_infected_humans: int
 const slime_moves_left_default := 5
 var slime_moves_left: int
 var checked_hp: int = 1 # so it doesn't trigger check_slime_moves_and_hp_left() on game start
+const infected_cells_milestone := 3 # increase HP for every n cells infected
 
 signal slime_round_start
 signal slime_round_end
@@ -24,6 +25,7 @@ signal lose
 signal hp_updated(new_value) # used in Slime script
 signal infected_cells_changed(new_value)
 signal infected_humans_changed(new_value)
+signal increase_hp_from_infected_cells
 
 func start_game() -> void:
 	slime_turn_start()
@@ -88,9 +90,14 @@ func win_end_game() -> void:
 	win.emit() # updates UI
 	current_state = TurnState.END_GAME
 
+func is_total_infected_cells_milestone_reached() -> bool:
+	return total_infected_cells % infected_cells_milestone == 0
+
 func increment_infected_cells(amount := 1) -> void:
 	total_infected_cells += amount
 	emit_signal("infected_cells_changed", total_infected_cells)
+	if is_total_infected_cells_milestone_reached():
+		emit_signal("increase_hp_from_infected_cells") # slime listens to this
 
 func increment_infected_humans(amount := 1) -> void:
 	total_infected_humans += amount
