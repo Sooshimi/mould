@@ -55,3 +55,6 @@ func _on_human_detect_area_body_entered(body: Human):
 
 func _on_human_detect_area_body_exited(body: Human):
 	humans_detected.erase(body)
+
+func play_kill_audio() -> void:
+	$WolfKillHumanSFX.play()

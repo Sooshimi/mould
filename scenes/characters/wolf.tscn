@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xfg7okyqnmb3"]
+[gd_scene load_steps=6 format=3 uid="uid://xfg7okyqnmb3"]
 
 [ext_resource type="Script" uid="uid://b65iqcf5yf862" path="res://scripts/characters/wolf.gd" id="1_jrowp"]
 [ext_resource type="Texture2D" uid="uid://bq4ps6bph0kv0" path="res://icon.svg" id="2_3a5b2"]
+[ext_resource type="AudioStream" uid="uid://bymnnvyhrn1nc" path="res://audio/SFX/wolf_kill_human.wav" id="3_d1dyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371uh"]
 size = Vector2(22, 22)
@@ -56,6 +57,9 @@ target_position = Vector2(16, 0)
 collision_mask = 5
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="WolfKillHumanSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d1dyp")
 
 [connection signal="body_entered" from="DetectArea" to="." method="_on_human_detect_area_body_entered"]
 [connection signal="body_exited" from="DetectArea" to="." method="_on_human_detect_area_body_exited"]

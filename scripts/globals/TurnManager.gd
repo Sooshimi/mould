@@ -1,5 +1,8 @@
 extends Node
 
+enum Level {TUTORIAL, ONE}
+var current_level = Level.TUTORIAL
+
 enum TurnState {SLIME_TURN_START, SLIME_ACTION, SLIME_TURN_END, ENEMY_TURN_START, ENEMY_ACTION, ENEMY_TURN_END, END_GAME}
 var current_state = TurnState.SLIME_TURN_START
 

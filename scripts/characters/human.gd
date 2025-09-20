@@ -48,5 +48,6 @@ func move() -> void:
 func _on_wolf_detect_area_body_entered(_body: Wolf) -> void:
 	caught_by_wolf = true
 
-func _on_killed_area_body_entered(_body: Wolf):
+func _on_killed_area_body_entered(body: Wolf):
+	body.play_kill_audio()
 	queue_free()

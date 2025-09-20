@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bymnnvyhrn1nc"
-path="res://.godot/imported/fungi_kill_human.wav-5fe71ab7dcb527a3127476873ac51f22.sample"
+path="res://.godot/imported/wolf_kill_human.wav-ef20148d8a39d4a1eba13f9c43209320.sample"
 
 [deps]
 
-source_file="res://audio/SFX/fungi_kill_human.wav"
-dest_files=["res://.godot/imported/fungi_kill_human.wav-5fe71ab7dcb527a3127476873ac51f22.sample"]
+source_file="res://audio/SFX/wolf_kill_human.wav"
+dest_files=["res://.godot/imported/wolf_kill_human.wav-ef20148d8a39d4a1eba13f9c43209320.sample"]
 
 [params]
 
