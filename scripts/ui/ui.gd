@@ -11,11 +11,11 @@ func _ready() -> void:
 	TurnManager.connect("win", on_win)
 
 func on_hp_updated(hp: int) -> void:
-	$VBoxContainer/HPLabel.text = str("HP: ", hp)
-	$HPBar.value = hp
+	$HBoxContainer/HPLabel.text = str("HP: ", hp)
+	$HBoxContainer/HPBar.value = hp
 
 func on_max_hp_updated(max_hp: int) -> void:
-	$HPBar.max_value = max_hp
+	$HBoxContainer/HPBar.max_value = max_hp
 
 func on_infected_cells_changed(total_infected_cells: int) -> void:
 	$VBoxContainer/TotalInfectedCells.text = str("Total infected cells: ", total_infected_cells)

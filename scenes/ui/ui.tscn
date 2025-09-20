@@ -12,14 +12,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u7n8c")
 
-[node name="HPBar" type="TextureProgressBar" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 127.0
-offset_top = 13.0
-offset_right = 727.0
-offset_bottom = 18.0
-scale = Vector2(2, 2)
+offset_left = 401.0
+offset_top = 41.0
+offset_right = 1036.0
+offset_bottom = 81.0
+
+[node name="HPBar" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
 texture_progress = ExtResource("2_f5cxw")
+
+[node name="HPLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "HP: "
 
 [node name="TurnLabel" type="Label" parent="."]
 layout_mode = 0
@@ -42,7 +48,3 @@ text = "Total infected cells: 0"
 [node name="TotalInfectedHumans" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Total infected humans: 0"
-
-[node name="HPLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "HP: "
