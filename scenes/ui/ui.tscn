@@ -80,7 +80,7 @@ offset_bottom = 760.0
 text = "Back to Main Menu"
 
 [node name="TargetArrow" type="Sprite2D" parent="."]
-position = Vector2(895, 98)
+position = Vector2(736, 100)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 texture = ExtResource("4_g5kmx")
