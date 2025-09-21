@@ -75,14 +75,8 @@ size = Vector2(571.375, 44.875)
 script = ExtResource("1_0tnpc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("7_trtic")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
 size_flags_horizontal = 4
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

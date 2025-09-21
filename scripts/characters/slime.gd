@@ -83,5 +83,4 @@ func move(direction: Vector2) -> void:
 		slime_move_sfx.play()
 
 func disable_movement(toggle: bool) -> void:
-	print("paused", toggle)
 	disable_move  = toggle

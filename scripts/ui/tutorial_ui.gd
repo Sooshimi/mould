@@ -16,14 +16,13 @@ func _ready() -> void:
 	TurnManager.connect("tutorial_start", update_dialogue)
 	TurnManager.connect("hp_updated", step_1_player_moved)
 	TurnManager.connect("infected_cells_changed", step_3_infect_cell)
-	#TurnManager.connect("infected_humans_changed", on_infected_humans_changed)
-	$DialogueBox/NextButton.hide()
+	$DialogueBox/DialogueText/NextButton.hide()
 
 func update_dialogue() -> void:
 	if current_dialogue_index < dialogue.size():
 		$DialogueBox/DialogueText.text = dialogue[current_dialogue_index]
 		if current_dialogue_index == dialogue.size() - 1:
-			$DialogueBox/NextButton.hide()
+			$DialogueBox/DialogueText/NextButton.hide()
 
 func _on_skip_tutorial_button_pressed():
 	TurnManager.stop_slime_move.emit(false)
@@ -44,12 +43,13 @@ func step_3_infect_cell(_new_value) -> void:
 	if TurnManager.current_level != 1:
 		tutorial_step += 1
 		next_dialogue()
+	if tutorial_step < 5:
 		pause_and_create_next_button_timer()
 
 func pause_and_create_next_button_timer() -> void:
 	TurnManager.stop_slime_move.emit(true)
 	await get_tree().create_timer(2.0).timeout
-	$DialogueBox/NextButton.show()
+	$DialogueBox/DialogueText/NextButton.show()
 
 func next_dialogue() -> void:
 	current_dialogue_index += 1
@@ -57,5 +57,5 @@ func next_dialogue() -> void:
 
 func _on_next_button_pressed():
 	TurnManager.stop_slime_move.emit(false)
-	$DialogueBox/NextButton.hide()
+	$DialogueBox/DialogueText/NextButton.hide()
 	tutorial_step += 1
