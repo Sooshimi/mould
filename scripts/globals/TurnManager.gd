@@ -8,8 +8,8 @@ var current_state = TurnState.SLIME_TURN_START
 
 const tutorial_total_cells := 9
 const tutorial_infected_cells_target := 2 # out of 256 (75%)
-const level_1_total_cells := 128
-const level_1_infected_cells_target := 192 # out of 256 (75%)
+const level_1_total_cells := 256
+const level_1_infected_cells_target := 128 # out of 256 (75%)
 
 var total_cells: int
 var infected_cells_target: int
