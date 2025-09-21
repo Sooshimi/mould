@@ -67,6 +67,7 @@ func slime_action() -> void:
 func slime_turn_end() -> void:
 	print("slime turn end")
 	current_state = TurnState.SLIME_TURN_END
+	slime_round_end.emit()
 	
 	await get_tree().create_timer(0.5).timeout
 	enemy_turn_start()

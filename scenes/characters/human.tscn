@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkk3m1w4ceo65"]
+[gd_scene load_steps=8 format=3 uid="uid://dkk3m1w4ceo65"]
 
 [ext_resource type="Script" uid="uid://f8tqfrrly1hp" path="res://scripts/characters/human.gd" id="1_cwf78"]
 [ext_resource type="Texture2D" uid="uid://cfffuql8upxb7" path="res://assets/human_counter.png" id="2_nkxto"]
+[ext_resource type="AudioStream" uid="uid://dw8jc7aqm8v1v" path="res://audio/SFX/all_humans_move_end_of_turn.wav" id="3_gtsq3"]
+[ext_resource type="AudioStream" uid="uid://b53ayhrvdh65n" path="res://audio/SFX/human_gets_infected.wav" id="4_ic6aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371uh"]
 size = Vector2(22, 22)
@@ -64,6 +66,12 @@ target_position = Vector2(16, 0)
 collision_mask = 5
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="MoveSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gtsq3")
+
+[node name="InfectedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ic6aa")
 
 [connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
 [connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]

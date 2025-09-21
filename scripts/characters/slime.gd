@@ -8,6 +8,9 @@ class_name Slime
 @onready var slime_path := $"../SlimePath"
 @onready var slime_move_sfx := $SlimeMoveSFX
 
+@export var hp_gain := 5
+@export var max_hp_gain := 1
+
 var slime_move_sfx_list = [
 	preload("res://audio/SFX/fungi_movement/move_1.wav"),
 	preload("res://audio/SFX/fungi_movement/move_2.wav"),
@@ -42,16 +45,22 @@ func _ready() -> void:
 	TurnManager.connect("infected_humans_changed", increase_hp_from_humans)
 	TurnManager.connect("increase_hp_from_infected_cells", increase_hp_from_cells)
 	TurnManager.connect("stop_slime_move", disable_movement)
+	TurnManager.connect("slime_round_end", play_move_end_sfx)
 	TurnManager.max_hp_updated.emit(max_hp)
 	TurnManager.hp_updated.emit(hp)
 
+func play_move_end_sfx() -> void:
+	$MoveEndSFX.play()
+
 func increase_hp_from_cells() -> void:
-	hp = min(hp + 5, max_hp)
+	hp = min(hp + hp_gain, max_hp)
 	TurnManager.max_hp_updated.emit(max_hp)
+	$GainHPSFX.play()
 
 func increase_hp_from_humans(_new_value) -> void:
-	max_hp += 1
-	hp = min(hp + 5, max_hp)
+	max_hp += max_hp_gain
+	hp = min(hp + hp_gain, max_hp)
+	$GainHPSFX.play()
 
 func _physics_process(_delta: float) -> void:
 	if (not sprite_node_position_tween or not sprite_node_position_tween.is_running()) and hp > 0:
@@ -83,4 +92,5 @@ func move(direction: Vector2) -> void:
 		slime_move_sfx.play()
 
 func disable_movement(toggle: bool) -> void:
+	print(toggle)
 	disable_move  = toggle

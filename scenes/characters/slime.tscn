@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://h3smwm553ckt"]
+[gd_scene load_steps=6 format=3 uid="uid://h3smwm553ckt"]
 
 [ext_resource type="Script" uid="uid://2fm8q0ye55e6" path="res://scripts/characters/slime.gd" id="1_p2gj0"]
 [ext_resource type="Texture2D" uid="uid://dfmdsfgykvj4p" path="res://assets/2d_lights_and_shadows_neutral_point_light.png" id="3_boxg1"]
+[ext_resource type="AudioStream" uid="uid://t6klnwpojfby" path="res://audio/SFX/gain_movement_sound.wav" id="3_gh1sf"]
+[ext_resource type="AudioStream" uid="uid://oukprx8fc3tx" path="res://audio/SFX/signify_end_of_5_moves.wav" id="4_gh1sf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371uh"]
 size = Vector2(18, 18)
@@ -47,3 +49,9 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="SlimeMoveSFX" type="AudioStreamPlayer" parent="."]
+
+[node name="GainHPSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gh1sf")
+
+[node name="MoveEndSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gh1sf")

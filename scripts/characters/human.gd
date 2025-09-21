@@ -7,6 +7,7 @@ var infected := false:
 	set(is_true):
 		if !infected and is_true:
 			TurnManager.increment_infected_humans()
+			$InfectedSFX.play()
 		infected = is_true
 
 func infected_colour() -> void:
@@ -34,6 +35,7 @@ func pick_direction() -> Vector2:
 		return Vector2.ZERO
 
 func move() -> void:
+	$MoveSFX.play()
 	direction = pick_direction()
 	var target_position = global_position + (direction * tile_size)
 	
