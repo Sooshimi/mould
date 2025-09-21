@@ -18,7 +18,7 @@ var infected_cells_target: int
 
 var total_infected_cells: int
 var total_infected_humans: int
-const slime_moves_left_default := 5
+const slime_moves_left_default := 6
 var slime_moves_left: int
 var checked_hp: int = 1 # so it doesn't trigger check_slime_moves_and_hp_left() on game start
 const infected_cells_milestone := 3 # increase HP for every n cells infected
