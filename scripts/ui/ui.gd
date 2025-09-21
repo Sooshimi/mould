@@ -11,6 +11,8 @@ func _ready() -> void:
 	TurnManager.connect("win", on_win)
 	TurnManager.connect("tutorial_start", update_infected_cells_bar)
 	TurnManager.connect("game_start", update_infected_cells_bar)
+	$NextLevelButton.hide()
+	$RestartButton.hide()
 
 func update_infected_cells_bar() -> void:
 	$TopBar/InfectedCellsBar.max_value = TurnManager.total_cells
@@ -37,6 +39,18 @@ func on_enemy_round() -> void:
 
 func on_lose() -> void:
 	$TurnLabel.text = "You lost!"
+	if TurnManager.current_level >= 1:
+		TurnManager.current_level = 0
+		$RestartButton.show()
 
 func on_win() -> void:
+	print(TurnManager.current_level)
 	$TurnLabel.text = "You win!"
+	if TurnManager.current_level == 2:
+		$NextLevelButton.show()
+
+func _on_next_level_button_pressed():
+	TurnManager.next_level_button_clicked.emit()
+
+func _on_restart_button_pressed():
+	TurnManager.restart.emit()

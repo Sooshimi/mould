@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://bjckrnyhg6sqk"]
+[gd_scene load_steps=14 format=4 uid="uid://bjckrnyhg6sqk"]
 
 [ext_resource type="Script" uid="uid://brebkn8c3ihrw" path="res://scripts/game.gd" id="1_8udce"]
 [ext_resource type="PackedScene" uid="uid://bnx3m6tx4tt5v" path="res://scenes/ui/ui.tscn" id="2_kx78w"]
 [ext_resource type="Texture2D" uid="uid://bkkqq37fwg0fp" path="res://assets/tiles.png" id="3_5wsnw"]
+[ext_resource type="PackedScene" uid="uid://cd0e3v0crc2nt" path="res://scenes/ui/tutorial_ui.tscn" id="3_kx78w"]
 [ext_resource type="PackedScene" uid="uid://ccx1n4a6ip1g3" path="res://scenes/grid.tscn" id="4_63x66"]
 [ext_resource type="PackedScene" uid="uid://ciagworcfis82" path="res://scenes/slime_path.tscn" id="5_eam7d"]
 [ext_resource type="PackedScene" uid="uid://h3smwm553ckt" path="res://scenes/characters/slime.tscn" id="6_c7e6t"]
@@ -71,13 +72,23 @@ size = Vector2(71.75, 340.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
 size = Vector2(317.6875, 32)
 
-[node name="Game" type="Node2D"]
+[node name="Game8x8" type="Node2D"]
 script = ExtResource("1_8udce")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("2_kx78w")]
 size_flags_horizontal = 4
+
+[node name="TutorialUI" parent="CanvasLayer" instance=ExtResource("3_kx78w")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(32, 112)
@@ -98,7 +109,7 @@ position = Vector2(480, 400)
 position = Vector2(464, 224)
 
 [node name="Human2" parent="." instance=ExtResource("7_u8lsc")]
-position = Vector2(528, 320)
+position = Vector2(528, 352)
 
 [node name="Human3" parent="." instance=ExtResource("7_u8lsc")]
 position = Vector2(656, 352)
@@ -137,12 +148,12 @@ position = Vector2(420, 144)
 position = Vector2(140, 311)
 shape = SubResource("RectangleShape2D_tipki")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(414, 404)
+[node name="TutorialCamera" type="Camera2D" parent="."]
+position = Vector2(424, 382)
 enabled = false
 zoom = Vector2(5, 5)
 
-[node name="Camera2D2" type="Camera2D" parent="."]
+[node name="8x8Camera" type="Camera2D" parent="."]
 position = Vector2(560, 304)
 enabled = false
 zoom = Vector2(2, 2)

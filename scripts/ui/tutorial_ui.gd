@@ -4,7 +4,7 @@ const dialogue = [
 	"",
 	"In this game, you play as a slime which spreads fungus!\n\nTry moving with WASD or the arrow keys!",
 	"Great! Did you notice the top green HP bar go down? It goes down by 1 HP every time you move, so watch your HP!\n\nFor every 5 moves you make, humans on the board will move 1 square too.\n\nYou can infect a piece of the ground by moving around all its edges. Try it!",
-	"Nice job, you just infected your first bit of ground! This is also indicated by the pink bar at the top, just below your HP bar.\n\nThe aim of the game is to infect 50% of the ground. You can also infect humans by moving around the uninfected ground they're stood on. Infected humans can spread the infection, so they will be useful!\n\nTry infecting another ground, or a human!",
+	"Nice job, you just infected your first bit of ground! This is also indicated by the pink bar at the top, just below your HP bar.\n\nThe aim of the game is to infect 75% of the ground. You can also infect humans by moving around the uninfected ground they're stood on. Infected humans can spread the infection, so they will be useful!\n\nTry infecting another ground, or a human!",
 	"Perfect. There's a few more things to mention:\n\n- Wolves can kill humans. You can kill wolves by moving around the ground they're stood on.\n\n- You can gain HP and max HP by infecting humans, and gain HP for every 2 cells infected!"
 ]
 
@@ -28,7 +28,7 @@ func _on_skip_tutorial_button_pressed():
 	TurnManager.stop_slime_move.emit(false)
 	TurnManager.current_level = 1
 	TurnManager.start_game()
-	$SkipTutorialButton.hide()
+	$".".hide()
 	$DialogueBox.hide()
 
 func step_1_player_moved(_new_value) -> void:

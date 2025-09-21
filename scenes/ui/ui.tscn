@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnx3m6tx4tt5v"]
+[gd_scene load_steps=4 format=3 uid="uid://bnx3m6tx4tt5v"]
 
 [ext_resource type="Script" uid="uid://ft1a6nxi1yq5" path="res://scripts/ui/ui.gd" id="1_u7n8c"]
 [ext_resource type="Texture2D" uid="uid://dph27g2od80rl" path="res://assets/progress_bar_tube.png" id="2_0dwhk"]
 [ext_resource type="Texture2D" uid="uid://cvu4mowx3dwha" path="res://assets/moveable_progress_bar.png" id="3_pfayw"]
-[ext_resource type="PackedScene" uid="uid://cd0e3v0crc2nt" path="res://scenes/ui/tutorial_ui.tscn" id="4_g5kmx"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -59,12 +58,21 @@ text = "Total infected cells: 0"
 layout_mode = 2
 text = "Total infected humans: 0"
 
-[node name="TutorialUI" parent="." instance=ExtResource("4_g5kmx")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="NextLevelButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 683.0
+offset_top = 731.0
+offset_right = 773.0
+offset_bottom = 762.0
+text = "Next Level"
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 658.0
+offset_top = 729.0
+offset_right = 815.0
+offset_bottom = 760.0
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

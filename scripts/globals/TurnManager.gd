@@ -1,15 +1,17 @@
 extends Node
 
-enum Level {TUTORIAL, ONE}
+enum Level {TUTORIAL, ONE, TWO, END_GAME}
 var current_level = Level.TUTORIAL
 
 enum TurnState {SLIME_TURN_START, SLIME_ACTION, SLIME_TURN_END, ENEMY_TURN_START, ENEMY_ACTION, ENEMY_TURN_END, END_GAME}
 var current_state = TurnState.SLIME_TURN_START
 
 const tutorial_total_cells := 9
-const tutorial_infected_cells_target := 2 # out of 256 (75%)
-const level_1_total_cells := 256
-const level_1_infected_cells_target := 128 # out of 256 (75%)
+const tutorial_infected_cells_target := 2
+const level_1_total_cells := 64
+const level_1_infected_cells_target := 48 # 48
+const level_2_total_cells := 256
+const level_2_infected_cells_target := 192 # 192
 
 var total_cells: int
 var infected_cells_target: int
@@ -38,6 +40,8 @@ signal increase_hp_from_infected_cells
 signal tutorial_start
 signal game_start
 signal stop_slime_move(toggle)
+signal next_level_button_clicked
+signal restart
 
 func start_tutorial() -> void:
 	total_cells = tutorial_total_cells
@@ -46,13 +50,20 @@ func start_tutorial() -> void:
 	tutorial_start.emit() # Game and UI script listens to this
 
 func start_game() -> void:
-	total_cells = level_1_total_cells
-	infected_cells_target = level_1_infected_cells_target
+	if current_level == 1:
+		total_cells = level_1_total_cells
+		infected_cells_target = level_1_infected_cells_target
+	elif current_level == 2:
+		total_cells = level_2_total_cells
+		infected_cells_target = level_2_infected_cells_target
+		total_infected_cells = 0
+		total_infected_humans = 0
 	slime_turn_start()
 	game_start.emit() # Game script listens to this
 
 func slime_turn_start() -> void:
 	print("slime turn start")
+	print(slime_moves_left)
 	current_state = TurnState.SLIME_TURN_START
 	slime_moves_left = slime_moves_left_default
 	slime_round_start.emit() # Update UI text
@@ -109,6 +120,8 @@ func lose_end_game() -> void:
 func win_end_game() -> void:
 	win.emit() # updates UI
 	current_state = TurnState.END_GAME
+	if current_level == Level.ONE:
+		current_level = Level.TWO
 
 func is_total_infected_cells_milestone_reached() -> bool:
 	return total_infected_cells % infected_cells_milestone == 0

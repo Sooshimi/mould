@@ -75,6 +75,7 @@ size = Vector2(571.375, 44.875)
 script = ExtResource("1_0tnpc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("7_trtic")]
 size_flags_horizontal = 4
