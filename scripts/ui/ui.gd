@@ -1,12 +1,5 @@
 extends Control
 
-const dialogue = [
-	"Hello",
-	"Goodbye"
-]
-
-var current_dialogue_index := 0
-
 func _ready() -> void:
 	TurnManager.connect("hp_updated", on_hp_updated)
 	TurnManager.connect("max_hp_updated", on_max_hp_updated)
@@ -17,7 +10,6 @@ func _ready() -> void:
 	TurnManager.connect("lose", on_lose)
 	TurnManager.connect("win", on_win)
 	TurnManager.connect("tutorial_start", update_infected_cells_bar)
-	TurnManager.connect("tutorial_start", update_dialogue)
 	TurnManager.connect("game_start", update_infected_cells_bar)
 
 func update_infected_cells_bar() -> void:
@@ -48,18 +40,3 @@ func on_lose() -> void:
 
 func on_win() -> void:
 	$TurnLabel.text = "You win!"
-
-func _on_skip_tutorial_button_pressed():
-	TurnManager.start_game()
-	$SkipTutorialButton.hide()
-	$DialogueBox.hide()
-
-func update_dialogue() -> void:
-	if current_dialogue_index < dialogue.size():
-		$DialogueBox/DialogueText.text = dialogue[current_dialogue_index]
-		if current_dialogue_index == dialogue.size() - 1:
-			$DialogueBox/NextButton.hide()
-
-func _on_next_button_pressed():
-	current_dialogue_index += 1
-	update_dialogue()

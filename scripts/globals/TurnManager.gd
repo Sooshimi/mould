@@ -7,8 +7,8 @@ enum TurnState {SLIME_TURN_START, SLIME_ACTION, SLIME_TURN_END, ENEMY_TURN_START
 var current_state = TurnState.SLIME_TURN_START
 
 const tutorial_total_cells := 9
-const tutorial_infected_cells_target := 6 # out of 256 (75%)
-const level_1_total_cells := 256
+const tutorial_infected_cells_target := 2 # out of 256 (75%)
+const level_1_total_cells := 128
 const level_1_infected_cells_target := 192 # out of 256 (75%)
 
 var total_cells: int
@@ -19,7 +19,7 @@ var total_infected_humans: int
 const slime_moves_left_default := 5
 var slime_moves_left: int
 var checked_hp: int = 1 # so it doesn't trigger check_slime_moves_and_hp_left() on game start
-const infected_cells_milestone := 3 # increase HP for every n cells infected
+const infected_cells_milestone := 2 # increase HP for every n cells infected
 
 signal slime_round_start
 signal slime_round_end
@@ -37,6 +37,7 @@ signal increase_hp_from_infected_cells
 
 signal tutorial_start
 signal game_start
+signal stop_slime_move(toggle)
 
 func start_tutorial() -> void:
 	total_cells = tutorial_total_cells
@@ -56,7 +57,7 @@ func slime_turn_start() -> void:
 	slime_moves_left = slime_moves_left_default
 	slime_round_start.emit() # Update UI text
 	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	slime_action()
 
 func slime_action() -> void:
@@ -67,7 +68,7 @@ func slime_turn_end() -> void:
 	print("slime turn end")
 	current_state = TurnState.SLIME_TURN_END
 	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	enemy_turn_start()
 
 func enemy_turn_start() -> void:
@@ -75,7 +76,7 @@ func enemy_turn_start() -> void:
 	current_state = TurnState.ENEMY_TURN_START
 	enemy_round_start.emit() # Update UI text
 	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	enemy_action()
 
 func enemy_action() -> void:
@@ -88,7 +89,7 @@ func enemy_turn_end() -> void:
 	# Enemy script to call this func
 	current_state = TurnState.ENEMY_TURN_END
 	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	
 	if checked_hp == 0 and (total_infected_cells < infected_cells_target):
 		lose_end_game()
