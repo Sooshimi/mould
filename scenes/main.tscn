@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bclp6x7pkar2m"]
 
 [ext_resource type="Script" uid="uid://ka2cwwb15nwm" path="res://scripts/main.gd" id="1_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://b6rwuldwktqp4" path="res://scenes/game.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://b6rwuldwktqp4" path="res://scenes/game_16x16.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://qpuwx33016k6" path="res://scenes/ui/main_menu.tscn" id="2_0wfyh"]
 [ext_resource type="AudioStream" uid="uid://cd30sblcnescq" path="res://audio/MUSIC/music_main_loop_loop.wav" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b1golcswbymsp" path="res://audio/MUSIC/Atmos.wav" id="5_tbgi4"]

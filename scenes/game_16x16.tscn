@@ -71,7 +71,7 @@ size = Vector2(71.75, 588.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
 size = Vector2(571.375, 44.875)
 
-[node name="Game" type="Node2D"]
+[node name="Game16x16" type="Node2D"]
 script = ExtResource("1_0tnpc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
