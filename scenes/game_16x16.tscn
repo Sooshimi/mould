@@ -89,7 +89,6 @@ tile_set = SubResource("TileSet_gee14")
 position = Vector2(448, 176)
 
 [node name="SlimePath" parent="." instance=ExtResource("3_vtaks")]
-LINE_WIDTH = 5
 
 [node name="Slime" parent="." instance=ExtResource("4_kvpfn")]
 position = Vector2(480, 656)
@@ -100,17 +99,11 @@ position = Vector2(528, 608)
 [node name="Human2" parent="." instance=ExtResource("5_dinhu")]
 position = Vector2(496, 448)
 
-[node name="Human3" parent="." instance=ExtResource("5_dinhu")]
-position = Vector2(880, 608)
-
 [node name="Human4" parent="." instance=ExtResource("5_dinhu")]
 position = Vector2(784, 608)
 
 [node name="Human5" parent="." instance=ExtResource("5_dinhu")]
 position = Vector2(720, 224)
-
-[node name="Human6" parent="." instance=ExtResource("5_dinhu")]
-position = Vector2(464, 192)
 
 [node name="Human7" parent="." instance=ExtResource("5_dinhu")]
 position = Vector2(912, 192)

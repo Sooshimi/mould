@@ -100,7 +100,7 @@ position = Vector2(448, 176)
 GRID_SIZE = 8
 
 [node name="SlimePath" parent="." instance=ExtResource("5_eam7d")]
-LINE_WIDTH = 5
+LINE_WIDTH = 3
 
 [node name="Slime" parent="." instance=ExtResource("6_c7e6t")]
 position = Vector2(480, 400)

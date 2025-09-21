@@ -4,7 +4,7 @@ extends Node2D
 
 const CELL_SIZE := 32
 @export var GRID_SIZE := 16
-const BORDER_THICKNESS := 3
+const BORDER_THICKNESS := 1
 const BORDER_COLOUR := Color("b6d53c80")
 
 func _ready() -> void:
