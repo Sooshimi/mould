@@ -45,9 +45,12 @@ func move() -> void:
 	sprite_node_position_tween.tween_property(self, "global_position", target_position, walk_speed).set_trans(Tween.TRANS_SINE)
 	TurnManager.enemy_turn_end()
 
-func _on_wolf_detect_area_body_entered(_body: Wolf) -> void:
-	caught_by_wolf = true
-
 func _on_killed_area_body_entered(body: Wolf):
 	body.play_kill_audio()
 	queue_free()
+
+func _on_detect_area_body_entered(_body: Wolf) -> void:
+	caught_by_wolf = true
+
+func _on_detect_area_body_exited(_body: Wolf):
+	caught_by_wolf = false

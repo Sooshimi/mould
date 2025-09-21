@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnx3m6tx4tt5v"]
+[gd_scene load_steps=5 format=3 uid="uid://bnx3m6tx4tt5v"]
 
 [ext_resource type="Script" uid="uid://ft1a6nxi1yq5" path="res://scripts/ui/ui.gd" id="1_u7n8c"]
 [ext_resource type="Texture2D" uid="uid://cyadg0wytch7d" path="res://assets/hp_bar.png" id="2_f5cxw"]
 [ext_resource type="Texture2D" uid="uid://bdlslmysd32e6" path="res://assets/infected_cells_bar.png" id="3_aac20"]
+[ext_resource type="PackedScene" uid="uid://cd0e3v0crc2nt" path="res://scenes/ui/tutorial_ui.tscn" id="4_g5kmx"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -57,49 +58,9 @@ text = "Total infected cells: 0"
 layout_mode = 2
 text = "Total infected humans: 0"
 
-[node name="SkipTutorialButton" type="Button" parent="."]
+[node name="TutorialUI" parent="." instance=ExtResource("4_g5kmx")]
 layout_mode = 0
-offset_left = 294.0
-offset_top = 682.0
-offset_right = 484.0
-offset_bottom = 732.0
-theme_override_font_sizes/font_size = 30
-text = "Skip Tutorial"
-
-[node name="DialogueBox" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 119.0
-offset_right = 725.0
-offset_bottom = 653.0
-
-[node name="DialogueText" type="RichTextLabel" parent="DialogueBox"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 24.0
-offset_right = 619.0
-offset_bottom = 471.0
-theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 30
-theme_override_font_sizes/bold_italics_font_size = 30
-theme_override_font_sizes/italics_font_size = 30
-theme_override_font_sizes/mono_font_size = 30
-text = "test"
-
-[node name="NextButton" type="Button" parent="DialogueBox"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -65.0
-offset_top = -44.0
-offset_right = -20.0
-offset_bottom = -13.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Next"
-
-[connection signal="pressed" from="SkipTutorialButton" to="." method="_on_skip_tutorial_button_pressed"]
-[connection signal="pressed" from="DialogueBox/NextButton" to="." method="_on_next_button_pressed"]
+offset_left = 123.0
+offset_top = 111.0
+offset_right = 313.0
+offset_bottom = 165.0

@@ -36,11 +36,13 @@ var hp = max_hp:
 		hp = new_value
 		TurnManager.hp_updated.emit(hp)
 		TurnManager.check_hp(hp)
+var disable_move := false
 
 func _ready() -> void:
 	slime_path.add_point(global_position)
 	TurnManager.connect("infected_humans_changed", increase_hp_from_humans)
 	TurnManager.connect("increase_hp_from_infected_cells", increase_hp_from_cells)
+	TurnManager.connect("stop_slime_move", disable_movement)
 	TurnManager.max_hp_updated.emit(max_hp)
 	TurnManager.hp_updated.emit(hp)
 
@@ -64,7 +66,7 @@ func _physics_process(_delta: float) -> void:
 			move(Vector2(1.0, 0.0))
 
 func move(direction: Vector2) -> void:
-	if TurnManager.current_state == 1:
+	if TurnManager.current_state == 1 and !disable_move:
 		hp -= 1
 		TurnManager.check_slime_moves_and_hp_left()
 		var target_position = global_position + (direction * tile_size)
@@ -80,3 +82,7 @@ func move(direction: Vector2) -> void:
 		var random_sfx_index = randi() % slime_move_sfx_list.size()
 		slime_move_sfx.stream = slime_move_sfx_list[random_sfx_index]
 		slime_move_sfx.play()
+
+func disable_movement(toggle: bool) -> void:
+	print("paused", toggle)
+	disable_move  = toggle

@@ -96,10 +96,10 @@ position = Vector2(416, 64)
 LINE_WIDTH = 5
 
 [node name="Slime" parent="." instance=ExtResource("4_kvpfn")]
-position = Vector2(416, 576)
+position = Vector2(448, 544)
 
 [node name="Human" parent="." instance=ExtResource("5_dinhu")]
-position = Vector2(432, 528)
+position = Vector2(496, 496)
 
 [node name="Human2" parent="." instance=ExtResource("5_dinhu")]
 position = Vector2(464, 336)
@@ -111,7 +111,7 @@ position = Vector2(848, 496)
 position = Vector2(784, 144)
 
 [node name="Wolf" parent="." instance=ExtResource("6_kvuet")]
-position = Vector2(688, 336)
+position = Vector2(464, 368)
 
 [node name="GridBoundaryLeft" type="Area2D" parent="."]
 position = Vector2(392, 36)
@@ -142,6 +142,6 @@ position = Vector2(300, 576)
 shape = SubResource("RectangleShape2D_tipki")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(381, 542)
+position = Vector2(400, 528)
 enabled = false
 zoom = Vector2(5, 5)

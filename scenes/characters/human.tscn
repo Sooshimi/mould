@@ -65,5 +65,6 @@ collision_mask = 5
 hit_from_inside = true
 collide_with_areas = true
 
-[connection signal="body_entered" from="DetectArea" to="." method="_on_wolf_detect_area_body_entered"]
+[connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]
 [connection signal="body_entered" from="KilledArea" to="." method="_on_killed_area_body_entered"]

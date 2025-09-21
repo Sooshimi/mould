@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd0e3v0crc2nt"]
+
+[ext_resource type="Script" uid="uid://dxwt1oggvfoyv" path="res://scripts/ui/tutorial_ui.gd" id="1_1s6jd"]
+
+[node name="TutorialUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 190.0
+offset_bottom = 54.0
+script = ExtResource("1_1s6jd")
+
+[node name="DialogueBox" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 57.0
+offset_right = 249.0
+offset_bottom = 57.0
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 24.0
+offset_right = 619.0
+offset_bottom = 471.0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+text = "test"
+
+[node name="NextButton" type="Button" parent="DialogueBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = 363.0
+offset_right = 9.0
+offset_bottom = 394.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Okay"
+
+[node name="SkipTutorialButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 586.0
+offset_right = 326.0
+offset_bottom = 636.0
+theme_override_font_sizes/font_size = 30
+text = "Skip Tutorial"
+
+[connection signal="pressed" from="DialogueBox/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="SkipTutorialButton" to="." method="_on_skip_tutorial_button_pressed"]
