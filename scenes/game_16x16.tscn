@@ -112,7 +112,7 @@ position = Vector2(912, 192)
 position = Vector2(656, 512)
 
 [node name="Wolf" parent="." instance=ExtResource("6_kvuet")]
-position = Vector2(592, 272)
+position = Vector2(592, 288)
 
 [node name="Wolf2" parent="." instance=ExtResource("6_kvuet")]
 position = Vector2(624, 608)
