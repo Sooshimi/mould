@@ -23,3 +23,4 @@ stream = ExtResource("5_tbgi4")
 volume_db = -9.541
 
 [connection signal="finished" from="MainLoopMusic" to="." method="_on_main_loop_music_finished"]
+[connection signal="finished" from="Atmos" to="." method="_on_atmos_finished"]
