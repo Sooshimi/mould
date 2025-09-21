@@ -3,7 +3,7 @@ extends Node2D
 @export var cell_scene: PackedScene
 
 const CELL_SIZE := 32
-const GRID_SIZE := 16
+@export var GRID_SIZE := 16
 const BORDER_THICKNESS := 3
 const BORDER_COLOUR := Color("b6d53c80")
 
