@@ -13,9 +13,10 @@ collision_layer = 2
 script = ExtResource("1_p2gj0")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.24811834, 0.73141116, 9.62615e-07, 1)
+color = Color(0.7137255, 0.8352941, 0.23529412, 1)
+energy = 0.5
 texture = ExtResource("3_boxg1")
-texture_scale = 0.18
+texture_scale = 0.12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_371uh")
