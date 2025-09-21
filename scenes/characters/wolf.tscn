@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://xfg7okyqnmb3"]
 
 [ext_resource type="Script" uid="uid://b65iqcf5yf862" path="res://scripts/characters/wolf.gd" id="1_jrowp"]
-[ext_resource type="Texture2D" uid="uid://bq4ps6bph0kv0" path="res://icon.svg" id="2_3a5b2"]
+[ext_resource type="Texture2D" uid="uid://dqyfo4xaf2gcd" path="res://assets/wolf_counter.png" id="2_d1dyp"]
 [ext_resource type="AudioStream" uid="uid://bymnnvyhrn1nc" path="res://audio/SFX/wolf_kill_human.wav" id="3_d1dyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371uh"]
@@ -19,9 +19,7 @@ collision_mask = 4
 script = ExtResource("1_jrowp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.16924527, 0.1692453, 0.16924527, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_3a5b2")
+texture = ExtResource("2_d1dyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_371uh")
