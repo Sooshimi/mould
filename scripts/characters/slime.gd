@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Slime
 
-@onready var sprite := $Sprite2D
 @onready var up := $Up
 @onready var down := $Down
 @onready var left := $Left
