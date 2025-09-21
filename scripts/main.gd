@@ -8,6 +8,7 @@ func _ready() -> void:
 	$MainLoopMusic.play()
 	TurnManager.connect("next_level_button_clicked", next_level)
 	TurnManager.connect("restart", restart)
+	TurnManager.connect("wolf_die", wolf_die_sfx)
 	$GameWindow/Game.hide()
 
 func show_game() -> void:
@@ -33,3 +34,6 @@ func next_level() -> void:
 
 func restart() -> void:
 	get_tree().reload_current_scene()
+
+func wolf_die_sfx() -> void:
+	$WolfDieSFX.play()

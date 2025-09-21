@@ -72,6 +72,7 @@ func play_kill_audio() -> void:
 func check_killed_by_slime() -> void:
 	if slime_passed_top and slime_passed_bottom and slime_passed_left and slime_passed_right:
 		queue_free()
+		TurnManager.wolf_die.emit()
 
 func _on_up_area_body_entered(_body: Slime) -> void:
 	slime_passed_top = true

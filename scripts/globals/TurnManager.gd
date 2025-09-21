@@ -42,6 +42,7 @@ signal game_start
 signal stop_slime_move(toggle)
 signal next_level_button_clicked
 signal restart
+signal wolf_die
 
 func start_tutorial() -> void:
 	total_cells = tutorial_total_cells
