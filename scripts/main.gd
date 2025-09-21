@@ -26,8 +26,8 @@ func next_level() -> void:
 	$GameWindow.add_child(level_2)
 	if TurnManager.current_level == 1:
 		TurnManager.current_level = 2
-	elif TurnManager.current_level == 2:
-		TurnManager.current_level = 3
+	#elif TurnManager.current_level == 2:
+		#TurnManager.current_level = 3
 	TurnManager.start_game()
 	TurnManager.stop_slime_move.emit(false)
 

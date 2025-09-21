@@ -50,6 +50,8 @@ func start_tutorial() -> void:
 	tutorial_start.emit() # Game and UI script listens to this
 
 func start_game() -> void:
+	print("current level: ", current_level)
+	print("infected_cells_target: ", infected_cells_target)
 	if current_level == 1:
 		total_cells = level_1_total_cells
 		infected_cells_target = level_1_infected_cells_target
@@ -63,7 +65,6 @@ func start_game() -> void:
 
 func slime_turn_start() -> void:
 	print("slime turn start")
-	print(slime_moves_left)
 	current_state = TurnState.SLIME_TURN_START
 	slime_moves_left = slime_moves_left_default
 	slime_round_start.emit() # Update UI text
@@ -120,6 +121,7 @@ func lose_end_game() -> void:
 func win_end_game() -> void:
 	win.emit() # updates UI
 	current_state = TurnState.END_GAME
+	print(current_level)
 	if current_level == Level.ONE:
 		current_level = Level.TWO
 

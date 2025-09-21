@@ -51,6 +51,7 @@ func on_win() -> void:
 
 func _on_next_level_button_pressed():
 	TurnManager.next_level_button_clicked.emit()
+	TurnManager.current_level = 2
 
 func _on_restart_button_pressed():
 	TurnManager.restart.emit()
