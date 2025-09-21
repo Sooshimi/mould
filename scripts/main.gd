@@ -8,9 +8,10 @@ func _ready() -> void:
 	$MainLoopMusic.play()
 	TurnManager.connect("next_level_button_clicked", next_level)
 	TurnManager.connect("restart", restart)
+	$GameWindow/Game.hide()
 
 func show_game() -> void:
-	#$GameWindow/Game.show()
+	$GameWindow/Game.show()
 	$Atmos.play()
 
 func _on_main_loop_music_finished() -> void:
