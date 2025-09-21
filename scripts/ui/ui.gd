@@ -16,7 +16,7 @@ func update_infected_cells_bar() -> void:
 	$TopBar/InfectedCellsBar.max_value = TurnManager.total_cells
 
 func on_hp_updated(hp: int) -> void:
-	$TopBar/HBoxContainer/HPLabel.text = str("HP: ", hp)
+	$TopBar/HBoxContainer/HPLabel.text = str(hp)
 	$TopBar/HBoxContainer/HPBar.value = hp
 
 func on_max_hp_updated(max_hp: int) -> void:
