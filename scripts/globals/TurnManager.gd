@@ -62,7 +62,7 @@ func start_game() -> void:
 		total_infected_cells = 0
 		total_infected_humans = 0
 	slime_turn_start()
-	game_start.emit() # Game script listens to this
+	game_start.emit() #Game script listens to this
 
 func slime_turn_start() -> void:
 	print("slime turn start")
