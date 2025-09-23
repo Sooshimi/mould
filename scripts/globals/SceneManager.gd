@@ -1,6 +1,6 @@
 extends Node
 
-enum Phase {GAME_TUTORIAL,GAME_LEVEL_1}
+enum Phase {GAME_TUTORIAL, GAME_LEVEL_1}
 
 var current_phase: int = Phase.GAME_TUTORIAL
 
